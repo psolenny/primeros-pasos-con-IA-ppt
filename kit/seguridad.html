@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de seguridad · Kit del participante</title>
+<meta name="description" content="Antes de pegar algo en la IA, y antes de usar lo que te devolvió.">
+<link rel="icon" href="../assets/logo-cecomsa-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="marq" aria-hidden="true"><div class="marq-track"><span>· kit del participante · pon la ia a trabajar por ti · contexto · especificidad · verificación </span><span>· kit del participante · pon la ia a trabajar por ti · contexto · especificidad · verificación </span></div></div>
+<header class="top"><div class="wrap">
+  <a href="../index.html"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"></a>
+  <nav><a href="../index.html">La charla</a><a href="../presentacion.html">Slides</a><a href="index.html" class="on">Kit</a></nav>
+</div></header>
+<nav class="tabs" aria-label="Piezas del kit"><div class="wrap"><a href="index.html" class=""><span class="k">00</span>Inicio</a><a href="glosario.html" class=""><span class="k">01</span>Glosario</a><a href="plantilla.html" class=""><span class="k">02</span>Plantilla</a><a href="prompts.html" class=""><span class="k">03</span>Banco de prompts</a><a href="mapa.html" class=""><span class="k">04</span>Mapa</a><a href="seguridad.html" class="on"><span class="k">05</span>Seguridad</a><a href="frases.html" class=""><span class="k">06</span>Frases</a><a href="reto.html" class=""><span class="k">07</span>Reto 7 días</a></div></nav>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="print-only print-head"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"><span>Kit del participante · Pon la IA a trabajar por ti · Solenny Peralta</span></div>
+  <div class="tag">// kit · pieza 05 de 07</div>
+  <div class="pagehead"><h1>Checklist de seguridad</h1><a class="chip n no-print" href="descargas/05-checklist-seguridad.pdf" download>↓ descargar PDF</a></div>
+  <p>Antes de pegar algo en la IA, y antes de usar lo que te devolvió.</p>
+</div></section><section class="sec"><div class="wrap"><div class="grid g2" style="align-items:start">
+  <div class="box"><span class="n">// antes de enviar</span><h3>Lo que le das</h3><ul class="check" style="margin-top:14px"><li>¿Es una herramienta aprobada por la empresa?</li><li>¿Hay datos de clientes, empleados o proveedores? Anonimízalos.</li><li>¿Hay contraseñas, claves o números de cuenta? Nunca.</li><li>¿Le di más permisos de los que necesita la tarea?</li><li>¿El documento que va a leer viene de un tercero? Puede traer órdenes escondidas.</li></ul></div>
+  <div class="box azul"><span class="n">// antes de usar el resultado</span><h3>Lo que te devuelve</h3><ul class="check" style="margin-top:14px"><li>¿Verifiqué cada dato, cifra, cita y fuente?</li><li>¿Alguien lo revisa antes de que salga a un cliente, un pago o una decisión?</li><li>¿Tiene consecuencias legales o de RR.HH.? La IA asiste, la persona decide.</li><li>¿Revisarlo me tomó más que hacerlo? Entonces no era la herramienta.</li></ul></div>
+</div>
+<div class="box negro" style="margin-top:28px"><span class="n">// la regla general</span><h3>La IA propone. Una persona revisa.</h3>
+<p style="color:rgba(255,255,255,.85)">Sobre todo antes de que algo salga hacia un cliente, un pago o una decisión.</p></div>
+<div class="pager"><a class="chip" href="mapa.html">← 04 · Mapa</a><a class="chip p" href="frases.html">06 · Frases →</a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap">
+  <img src="../assets/logo-cecomsa-color.png" alt="CECOMSA">
+  <div class="firma"><b>Solenny Peralta</b><span>Gerente de Proyectos de Innovación y Servicios TI</span></div>
+</div></footer>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.closest('.prompt').querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){b.textContent='¡copiado!';b.classList.add('ok');setTimeout(function(){b.textContent='copiar';b.classList.remove('ok');},1500);});
+});});
+document.querySelectorAll('.filter button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.filter button').forEach(function(x){x.classList.toggle('on',x===b);});
+  var c=b.dataset.c;document.querySelectorAll('.prompt').forEach(function(p){p.style.display=(c==='todas'||p.dataset.c===c)?'':'none';});
+});});
+</script>
+</body>
+</html>

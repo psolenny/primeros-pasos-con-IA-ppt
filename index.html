@@ -3,120 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pon la IA a trabajar por ti — Charla CECOMSA</title>
-<meta name="description" content="De responder preguntas, a hacer el trabajo contigo. Charla de primeros pasos con IA en el trabajo.">
-<link rel="icon" href="assets/logo-cecomsa-colorido.png">
-<style>
-  :root { --azul:#002F6C; --magenta:#A20067; --rosa:#E31C79; --blanco:#FFFFFF; --negro:#000000; --gris:#F3F4F8; --texto2:#4A4F66; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:"Museo Sans","Helvetica Neue",Helvetica,Arial,sans-serif; color:var(--negro); background:var(--blanco); line-height:1.5; }
-  a { color:inherit; }
-  .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
-  header { padding:22px 0; }
-  header .wrap { display:flex; align-items:center; justify-content:space-between; }
-  header img { height:48px; }
-  header nav a { text-decoration:none; font-weight:700; color:var(--azul); margin-left:26px; font-size:15px; }
-  .hero { background:var(--azul); color:var(--blanco); padding:90px 0 100px; position:relative; overflow:hidden; }
-  .hero .wrap { display:grid; grid-template-columns:1.2fr .8fr; gap:48px; align-items:center; }
-  .kicker { font-size:14px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:var(--rosa); margin-bottom:18px; }
-  h1 { font-size:clamp(40px,6vw,76px); line-height:1.05; font-weight:800; }
-  .sub { font-size:clamp(20px,2.4vw,28px); color:var(--rosa); font-weight:700; margin-top:22px; }
-  .meta { margin-top:26px; color:rgba(255,255,255,.8); font-size:17px; }
-  .btns { display:flex; gap:14px; margin-top:40px; flex-wrap:wrap; }
-  .btn { display:inline-block; padding:18px 32px; border-radius:999px; font-weight:800; text-decoration:none; font-size:18px; transition:transform .15s; }
-  .btn:hover { transform:translateY(-2px); }
-  .btn.p { background:var(--rosa); color:var(--blanco); }
-  .btn.s { background:transparent; color:var(--blanco); border:3px solid var(--blanco); }
-  .btn.s2 { background:var(--azul); color:var(--blanco); }
-  .orb { width:100%; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; }
-  .orb div { width:68%; aspect-ratio:1; border-radius:50%; background:var(--magenta); display:flex; align-items:center; justify-content:center; }
-  .orb div div { width:56%; background:var(--rosa); font-size:clamp(50px,7vw,100px); }
-  section { padding:80px 0; }
-  h2 { font-size:clamp(30px,4vw,44px); color:var(--azul); font-weight:800; margin-bottom:14px; }
-  .lead { font-size:20px; color:var(--texto2); max-width:720px; }
-  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:40px; }
-  .card { background:var(--gris); border-radius:18px; padding:28px; }
-  .card .n { font-size:40px; font-weight:800; color:var(--rosa); line-height:1; }
-  .card h3 { font-size:22px; color:var(--azul); margin:12px 0 6px; }
-  .card p { color:var(--texto2); font-size:16px; }
-  .dark { background:var(--negro); color:var(--blanco); }
-  .dark h2 { color:var(--blanco); } .dark .lead { color:rgba(255,255,255,.8); } .dark .quote { color:var(--blanco); }
-  .dark .card { background:rgba(255,255,255,.08); } .dark .card h3 { color:var(--blanco); } .dark .card p { color:rgba(255,255,255,.75); }
-  .kit { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
-  ul.check { list-style:none; margin-top:20px; }
-  ul.check li { padding-left:34px; position:relative; margin-bottom:12px; font-size:18px; }
-  ul.check li::before { content:"✓"; position:absolute; left:0; top:0; color:var(--rosa); font-weight:800; font-size:20px; }
-  .quote { font-size:clamp(24px,3vw,36px); font-weight:700; color:var(--azul); text-align:center; max-width:900px; margin:0 auto; }
-  .quote b { color:var(--rosa); }
-  footer { padding:40px 0; border-top:1px solid var(--gris); color:var(--texto2); font-size:14px; }
-  footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-  footer img { height:36px; }
-  @media (max-width:800px) { .hero .wrap, .kit { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } .orb { max-width:260px; margin:0 auto; } header nav a { margin-left:14px; } }
-</style>
+<title>Pon la IA a trabajar por ti · Charla CECOMSA</title>
+<meta name="description" content="De responder preguntas, a hacer el trabajo contigo. Charla de primeros pasos con IA en el trabajo, por Solenny Peralta.">
+<link rel="icon" href="assets/logo-cecomsa-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<header><div class="wrap">
-  <img src="assets/logo-cecomsa-colorido.png" alt="CECOMSA">
-  <nav><a href="#agenda">Agenda</a><a href="#kit">Kit</a><a href="presentacion.html">Presentación</a></nav>
+<div class="marq" aria-hidden="true"><div class="marq-track"><span>· pon la ia a trabajar por ti · de responder preguntas a hacer el trabajo contigo · contexto · especificidad · verificación </span><span>· pon la ia a trabajar por ti · de responder preguntas a hacer el trabajo contigo · contexto · especificidad · verificación </span></div></div>
+
+<header class="top"><div class="wrap">
+  <a href="index.html"><img src="assets/logo-cecomsa-color.png" alt="CECOMSA"></a>
+  <nav><a href="#agenda">Agenda</a><a href="presentacion.html">Slides</a><a href="kit/index.html">Kit</a></nav>
 </div></header>
 
-<section class="hero"><div class="wrap">
-  <div>
-    <div class="kicker">Charla · Primeros pasos con IA</div>
-    <h1>Pon la IA a trabajar por ti</h1>
-    <p class="sub">De responder preguntas, a hacer el trabajo contigo</p>
-    <p class="meta">Solenny Peralta · CECOMSA · ~60 minutos</p>
-    <div class="btns">
-      <a class="btn p" href="presentacion.html">Ver la presentación →</a>
-      <a class="btn s" href="kit.html">Kit del participante</a>
-    </div>
+<section class="hero azul"><div class="wrap">
+  <div class="tag">// charla · primeros pasos con ia · ~60 min</div>
+  <h1>Pon la IA a trabajar<br><span class="hl">por ti</span>.</h1>
+  <p>De responder preguntas, a hacer el trabajo contigo. Qué es un agente, cómo se equivoca, cómo pedirle bien y cuál es tu primera tarea para ponerla a trabajar.</p>
+  <div class="meta">
+    <a class="chip p" href="presentacion.html">▶ ver la presentación</a>
+    <a class="chip" href="kit/index.html">kit del participante →</a>
   </div>
-  <div class="orb"><div><div>✦</div></div></div>
+  <div class="firma"><b>Solenny Peralta</b><span>Gerente de Proyectos de Innovación y Servicios TI</span></div>
 </div></section>
 
-<section id="agenda"><div class="wrap">
-  <h2>Lo que vamos a ver</h2>
-  <p class="lead">Seis bloques cortos. Cada uno termina con algo que puedes aplicar mañana en tu trabajo.</p>
-  <div class="grid">
-    <div class="card"><div class="n">01</div><h3>Diferencias que importan</h3><p>Chat vs. agente y el vocabulario mínimo: empresa, modelo, asistente, interfaz, herramienta.</p></div>
-    <div class="card"><div class="n">02</div><h3>Cuando la IA se equivoca</h3><p>Alucinaciones en vivo y prompt injection: el CV tramposo y el chatbot que da de más.</p></div>
-    <div class="card"><div class="n">03</div><h3>El contexto lo es todo</h3><p>Las 3 fuentes de contexto: lo que escribes, lo que le das a leer y lo que dejas en sus instrucciones.</p></div>
-    <div class="card"><div class="n">04</div><h3>El arte de pedir bien</h3><p>Anatomía de un buen prompt, un antes y después, y por qué “hazlo mejor” no funciona.</p></div>
-    <div class="card"><div class="n">05</div><h3>Tu primera tarea con IA</h3><p>El mapa para elegirla, de qué está hecho un asistente, rutinas, skills y cuándo la IA no es la herramienta.</p></div>
-    <div class="card"><div class="n">06</div><h3>¿Qué recuerda la IA?</h3><p>La ventana de contexto tiene fondo: qué se olvida, qué se guarda y cómo trabajar con eso.</p></div>
-  </div>
-</div></section>
-
-<section class="dark"><div class="wrap">
-  <p class="quote">La IA es tan buena como el <b>contexto</b> que le das. Pide <b>específico</b>, corrige específico. Y <b>verifica</b> siempre.</p>
-</div></section>
-
-<section id="kit"><div class="wrap kit">
-  <div>
-    <h2>Kit del participante</h2>
-    <p class="lead">Todo lo que necesitas para aplicar la charla desde mañana, en una sola página.</p>
-    <ul class="check">
-      <li>Glosario de bolsillo</li>
-      <li>Plantilla de prompt (las 6 piezas)</li>
-      <li>Banco de prompts para el trabajo</li>
-      <li>Mapa de tu primera tarea</li>
-      <li>Checklist de seguridad</li>
-      <li>Frases que sí funcionan</li>
-      <li>Reto de 7 días</li>
-    </ul>
-    <div class="btns"><a class="btn s2" href="kit.html">Abrir el kit →</a></div>
-  </div>
-  <div class="card" style="background:var(--azul); padding:40px">
-    <div class="kicker">Tu tarea para mañana</div>
-    <p style="font-size:22px; font-weight:700; margin-bottom:16px; color:#fff">1. Llena tu mapa con una tarea.</p>
-    <p style="font-size:22px; font-weight:700; margin-bottom:16px; color:#fff">2. Escribe un prompt con la anatomía.</p>
-    <p style="font-size:22px; font-weight:700; color:#fff">3. Compara con lo que hacías antes.</p>
+<section class="sec" id="agenda"><div class="wrap">
+  <div class="eyebrow">// el mapa de hoy</div>
+  <h2>Seis paradas y un cafecito.</h2>
+  <p class="lead">Cada bloque termina con algo que puedes aplicar mañana en tu trabajo.</p>
+  <div class="grid g3">
+    <div class="box"><span class="n">01 · diferencias</span><h3>Chat vs. agente</h3><p>El vocabulario mínimo: empresa, modelo, asistente, interfaz y herramienta.</p></div>
+    <div class="box"><span class="n">02 · riesgos</span><h3>Cuando la IA se equivoca</h3><p>Una alucinación en vivo, el CV tramposo y el chatbot que da de más.</p></div>
+    <div class="box"><span class="n">03 · contexto</span><h3>El contexto lo es todo</h3><p>Lo que escribes, lo que le das a leer y lo que dejas en sus instrucciones.</p></div>
+    <div class="box rosa"><span class="n">☕ · pausa</span><h3>Cafecito</h3><p style="color:#fff">Diez minutos. El café está en el salón.</p></div>
+    <div class="box"><span class="n">04 · pedir bien</span><h3>El arte de pedir bien</h3><p>Anatomía de un prompt, un antes y después, y por qué “hazlo mejor” no sirve.</p></div>
+    <div class="box"><span class="n">05 · tu primera tarea</span><h3>Ponla a trabajar</h3><p>El mapa para elegirla, rutinas, skills y cuándo la IA no es la herramienta.</p></div>
+    <div class="box"><span class="n">06 · memoria</span><h3>¿Qué recuerda la IA?</h3><p>La ventana de contexto tiene fondo: qué se olvida y cómo trabajar con eso.</p></div>
+    <a class="box azul" href="presentacion.html" style="grid-column:span 2"><span class="n">// slides</span><h3>Ver la presentación completa →</h3><p>28 láminas. Flechas para avanzar, <b style="color:#fff">f</b> pantalla completa, <b style="color:#fff">o</b> índice.</p></a>
   </div>
 </div></section>
 
-<footer><div class="wrap">
-  <img src="assets/logo-cecomsa-colorido.png" alt="CECOMSA">
-  <span>Charla interna · Pon la IA a trabajar por ti · Solenny Peralta</span>
+<section class="band"><div class="wrap">
+  <p class="quote">La IA es tan buena como el <em>contexto</em> que le das. Pide <em>específico</em>, corrige específico. Y <em>verifica</em> siempre.</p>
+</div></section>
+
+<section class="sec" id="kit"><div class="wrap">
+  <div class="eyebrow">// llévatelo</div>
+  <h2>El kit del participante.</h2>
+  <p class="lead">Siete piezas para aplicar la charla desde mañana. Cada una en su página, con PDF para imprimir, o todo junto en un ZIP.</p>
+  <div class="grid g4">
+    <a class="box" href="kit/glosario.html"><span class="n">01</span><h3>Glosario</h3></a>
+    <a class="box" href="kit/plantilla.html"><span class="n">02</span><h3>Plantilla de prompt</h3></a>
+    <a class="box negro" href="kit/prompts.html"><span class="n">03</span><h3>Banco de prompts</h3></a>
+    <a class="box" href="kit/mapa.html"><span class="n">04</span><h3>Mapa de tu tarea</h3></a>
+    <a class="box" href="kit/seguridad.html"><span class="n">05</span><h3>Seguridad</h3></a>
+    <a class="box" href="kit/frases.html"><span class="n">06</span><h3>Frases que funcionan</h3></a>
+    <a class="box" href="kit/reto.html"><span class="n">07</span><h3>Reto de 7 días</h3></a>
+    <a class="box rosa" href="kit/descargas/kit-participante-pon-la-ia-a-trabajar.zip" download><span class="n">ZIP</span><h3>↓ Descargar todo</h3></a>
+  </div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <img src="assets/logo-cecomsa-color.png" alt="CECOMSA">
+  <div class="firma"><b>Solenny Peralta</b><span>Gerente de Proyectos de Innovación y Servicios TI</span></div>
 </div></footer>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de tu primera tarea · Kit del participante</title>
+<meta name="description" content="Elige bien la primera tarea y ya ganaste la mitad. Una buena candidata cumple los cuatro criterios.">
+<link rel="icon" href="../assets/logo-cecomsa-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="marq" aria-hidden="true"><div class="marq-track"><span>· kit del participante · pon la ia a trabajar por ti · contexto · especificidad · verificación </span><span>· kit del participante · pon la ia a trabajar por ti · contexto · especificidad · verificación </span></div></div>
+<header class="top"><div class="wrap">
+  <a href="../index.html"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"></a>
+  <nav><a href="../index.html">La charla</a><a href="../presentacion.html">Slides</a><a href="index.html" class="on">Kit</a></nav>
+</div></header>
+<nav class="tabs" aria-label="Piezas del kit"><div class="wrap"><a href="index.html" class=""><span class="k">00</span>Inicio</a><a href="glosario.html" class=""><span class="k">01</span>Glosario</a><a href="plantilla.html" class=""><span class="k">02</span>Plantilla</a><a href="prompts.html" class=""><span class="k">03</span>Banco de prompts</a><a href="mapa.html" class="on"><span class="k">04</span>Mapa</a><a href="seguridad.html" class=""><span class="k">05</span>Seguridad</a><a href="frases.html" class=""><span class="k">06</span>Frases</a><a href="reto.html" class=""><span class="k">07</span>Reto 7 días</a></div></nav>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="print-only print-head"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"><span>Kit del participante · Pon la IA a trabajar por ti · Solenny Peralta</span></div>
+  <div class="tag">// kit · pieza 04 de 07</div>
+  <div class="pagehead"><h1>Mapa de tu primera tarea</h1><a class="chip n no-print" href="descargas/04-mapa-primera-tarea.pdf" download>↓ descargar PDF</a></div>
+  <p>Elige bien la primera tarea y ya ganaste la mitad. Una buena candidata cumple los cuatro criterios.</p>
+</div></section><section class="sec"><div class="wrap">
+  <div class="grid g4"><div class="box soft"><span class="n">criterio 1</span><h3>repetitiva</h3><p>Cada día o cada semana.</p></div><div class="box soft"><span class="n">criterio 2</span><h3>digital</h3><p>Correos, Excel, PDFs, sistemas.</p></div><div class="box soft"><span class="n">criterio 3</span><h3>verificable</h3><p>Sabes reconocer rápido si quedó bien.</p></div><div class="box soft"><span class="n">criterio 4</span><h3>bajo riesgo</h3><p>Un error no cuesta dinero ni clientes.</p></div></div>
+  <h2 style="margin-top:40px;font-size:26px">Tu mapa</h2>
+  <p class="lead">La primera fila es un ejemplo. Llena las demás con tareas reales.</p>
+  <div class="scroll"><table class="tbl"><tr><th>Tarea</th><th>Frecuencia</th><th>Tiempo que toma</th><th>Insumos</th><th>Resultado esperado</th><th>Quién revisa</th></tr><tr class="ex"><td>Resumen semanal de pendientes</td><td>Semanal</td><td>1 h</td><td>Correos + notas</td><td>1 página con prioridades</td><td>Yo</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+  <div class="box negro" style="margin-top:30px"><span class="n">// el orden importa</span><h3>Primero optimizar, después automatizar.</h3>
+  <p style="color:rgba(255,255,255,.85)">Optimizar es que la IA lo haga contigo, más rápido, y tú revisas. Automatizar es que lo haga sola. Llega ahí solo cuando ya confías en el resultado.</p></div>
+  <p class="lead no-print" style="margin-top:22px">¿Prefieres llenarlo en Excel? Descarga <a href="descargas/mapa-primera-tarea.csv" download>mapa-primera-tarea.csv</a>.</p>
+  <div class="pager"><a class="chip" href="prompts.html">← 03 · Banco de prompts</a><a class="chip p" href="seguridad.html">05 · Seguridad →</a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap">
+  <img src="../assets/logo-cecomsa-color.png" alt="CECOMSA">
+  <div class="firma"><b>Solenny Peralta</b><span>Gerente de Proyectos de Innovación y Servicios TI</span></div>
+</div></footer>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.closest('.prompt').querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){b.textContent='¡copiado!';b.classList.add('ok');setTimeout(function(){b.textContent='copiar';b.classList.remove('ok');},1500);});
+});});
+document.querySelectorAll('.filter button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.filter button').forEach(function(x){x.classList.toggle('on',x===b);});
+  var c=b.dataset.c;document.querySelectorAll('.prompt').forEach(function(p){p.style.display=(c==='todas'||p.dataset.c===c)?'':'none';});
+});});
+</script>
+</body>
+</html>

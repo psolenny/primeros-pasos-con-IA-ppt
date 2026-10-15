@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frases que sí funcionan · Kit del participante</title>
+<meta name="description" content="“Hazlo mejor” no dice qué está mal ni cómo se ve bien. Estas sí.">
+<link rel="icon" href="../assets/logo-cecomsa-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="marq" aria-hidden="true"><div class="marq-track"><span>· kit del participante · pon la ia a trabajar por ti · contexto · especificidad · verificación </span><span>· kit del participante · pon la ia a trabajar por ti · contexto · especificidad · verificación </span></div></div>
+<header class="top"><div class="wrap">
+  <a href="../index.html"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"></a>
+  <nav><a href="../index.html">La charla</a><a href="../presentacion.html">Slides</a><a href="index.html" class="on">Kit</a></nav>
+</div></header>
+<nav class="tabs" aria-label="Piezas del kit"><div class="wrap"><a href="index.html" class=""><span class="k">00</span>Inicio</a><a href="glosario.html" class=""><span class="k">01</span>Glosario</a><a href="plantilla.html" class=""><span class="k">02</span>Plantilla</a><a href="prompts.html" class=""><span class="k">03</span>Banco de prompts</a><a href="mapa.html" class=""><span class="k">04</span>Mapa</a><a href="seguridad.html" class=""><span class="k">05</span>Seguridad</a><a href="frases.html" class="on"><span class="k">06</span>Frases</a><a href="reto.html" class=""><span class="k">07</span>Reto 7 días</a></div></nav>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="print-only print-head"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"><span>Kit del participante · Pon la IA a trabajar por ti · Solenny Peralta</span></div>
+  <div class="tag">// kit · pieza 06 de 07</div>
+  <div class="pagehead"><h1>Frases que sí funcionan</h1><a class="chip n no-print" href="descargas/06-frases-que-funcionan.pdf" download>↓ descargar PDF</a></div>
+  <p>“Hazlo mejor” no dice qué está mal ni cómo se ve bien. Estas sí.</p>
+</div></section><section class="sec"><div class="wrap"><div class="grid g2" style="align-items:start">
+  <div><div class="phr"><b>extensión</b><q>Es muy largo: déjalo en 3 párrafos.</q><small>En vez de “hazlo más corto”.</small></div><div class="phr"><b>tono</b><q>Suena a robot: escríbelo como se lo dirías a un colega.</q><small>En vez de “más natural”.</small></div><div class="phr"><b>falta algo</b><q>Falta la fecha de entrega en el primer párrafo.</q><small>Dile qué y dónde.</small></div><div class="phr"><b>sobra algo</b><q>Quita la parte de las excusas; ve directo a la solución.</q><small>Lo que quitas importa tanto como lo que pides.</small></div><div class="phr"><b>estructura</b><q>Ponlo en una tabla con columnas: tarea, responsable, fecha.</q><small>Nombra las columnas.</small></div></div><div><div class="phr"><b>opciones</b><q>Dame 2 versiones: una formal y una más cálida.</q><small>Comparar es más fácil que describir.</small></div><div class="phr"><b>enfoque</b><q>Céntrate solo en el riesgo de costos; lo demás no importa ahora.</q><small>Le quitas ruido.</small></div><div class="phr"><b>fuentes</b><q>Marca qué partes vienen de mi documento y cuáles son tuyas.</q><small>Tu antídoto contra la alucinación.</small></div><div class="phr"><b>antes de asumir</b><q>Si te falta información, pregúntame antes de responder.</q><small>Evita que rellene huecos inventando.</small></div><div class="phr"><b>nivel</b><q>Explícalo para alguien que no es técnico, con un ejemplo del trabajo.</q><small>Define a quién le habla.</small></div></div></div>
+  <div class="box rosa" style="margin-top:24px"><span class="n">// la idea</span><h3>Cuanto más específica la crítica, más útil la corrección.</h3></div>
+  <div class="pager"><a class="chip" href="seguridad.html">← 05 · Seguridad</a><a class="chip p" href="reto.html">07 · Reto 7 días →</a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap">
+  <img src="../assets/logo-cecomsa-color.png" alt="CECOMSA">
+  <div class="firma"><b>Solenny Peralta</b><span>Gerente de Proyectos de Innovación y Servicios TI</span></div>
+</div></footer>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.closest('.prompt').querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(function(){b.textContent='¡copiado!';b.classList.add('ok');setTimeout(function(){b.textContent='copiar';b.classList.remove('ok');},1500);});
+});});
+document.querySelectorAll('.filter button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.filter button').forEach(function(x){x.classList.toggle('on',x===b);});
+  var c=b.dataset.c;document.querySelectorAll('.prompt').forEach(function(p){p.style.display=(c==='todas'||p.dataset.c===c)?'':'none';});
+});});
+</script>
+</body>
+</html>
