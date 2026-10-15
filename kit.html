@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit del participante — Pon la IA a trabajar por ti</title>
+<link rel="icon" href="assets/logo-cecomsa-colorido.png">
+<style>
+  :root { --azul:#002F6C; --magenta:#A20067; --rosa:#E31C79; --blanco:#FFFFFF; --negro:#000000; --gris:#F3F4F8; --texto2:#4A4F66; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Museo Sans","Helvetica Neue",Helvetica,Arial,sans-serif; color:var(--negro); background:var(--blanco); line-height:1.5; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+  header { padding:22px 0; }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; }
+  header img { height:44px; }
+  header a { text-decoration:none; font-weight:700; color:var(--azul); font-size:15px; margin-left:22px; }
+  .hero { background:var(--azul); color:#fff; padding:60px 0; }
+  .kicker { font-size:13px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:var(--rosa); margin-bottom:12px; }
+  h1 { font-size:clamp(34px,5vw,56px); line-height:1.08; font-weight:800; }
+  .hero p { margin-top:14px; font-size:19px; color:rgba(255,255,255,.85); max-width:700px; }
+  .toc { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .toc a { text-decoration:none; color:#fff; border:2px solid rgba(255,255,255,.5); border-radius:999px; padding:8px 16px; font-size:14px; font-weight:700; }
+  .toc a:hover { border-color:var(--rosa); color:var(--rosa); }
+  .btn { display:inline-block; padding:14px 26px; border-radius:999px; font-weight:800; text-decoration:none; font-size:16px; background:var(--rosa); color:#fff; margin-top:28px; }
+  section { padding:60px 0; border-bottom:1px solid var(--gris); }
+  section h2 { font-size:clamp(26px,3.5vw,38px); color:var(--azul); font-weight:800; margin-bottom:8px; }
+  section h2 span { color:var(--rosa); margin-right:10px; }
+  .lead { color:var(--texto2); font-size:17px; margin-bottom:26px; max-width:720px; }
+  .card { background:var(--gris); border-radius:16px; padding:24px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  dl.gl { display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; }
+  dl.gl div { background:var(--gris); border-radius:12px; padding:16px 18px; }
+  dt { font-weight:800; color:var(--azul); font-size:17px; } dd { color:var(--texto2); font-size:15px; margin-top:4px; }
+  .form .f { background:var(--gris); border-radius:12px; padding:16px 18px; margin-bottom:12px; }
+  .form label { display:block; font-weight:800; color:var(--azul); font-size:15px; }
+  .form small { display:block; color:var(--texto2); margin:2px 0 8px; font-size:14px; }
+  .form textarea { width:100%; min-height:64px; border:2px solid #fff; border-radius:8px; padding:10px; font:inherit; font-size:15px; resize:vertical; background:#fff; }
+  .form textarea:focus { outline:none; border-color:var(--rosa); }
+  table { width:100%; border-collapse:collapse; font-size:15px; }
+  th { background:var(--azul); color:#fff; text-align:left; padding:10px 12px; font-size:14px; }
+  td { padding:10px 12px; border-bottom:2px solid var(--gris); height:46px; }
+  tr.ex td { background:var(--gris); font-style:italic; color:var(--texto2); }
+  ul.check { list-style:none; } ul.check li { padding-left:34px; position:relative; margin-bottom:12px; font-size:17px; }
+  ul.check li::before { content:""; position:absolute; left:0; top:3px; width:20px; height:20px; border:3px solid var(--rosa); border-radius:5px; }
+  .phr { background:var(--gris); border-radius:12px; padding:14px 18px; font-size:16px; margin-bottom:10px; }
+  .phr b { color:var(--magenta); display:block; font-size:13px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:4px; }
+  /* banco de prompts */
+  .bank { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .pr { background:var(--gris); border-radius:14px; padding:20px; display:flex; flex-direction:column; }
+  .pr .cat { font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa); }
+  .pr h4 { font-size:18px; color:var(--azul); margin:6px 0 10px; }
+  .pr pre { white-space:pre-wrap; font-family:inherit; font-size:14.5px; color:var(--negro); line-height:1.45; background:#fff; border-radius:8px; padding:12px 14px; flex:1; }
+  .pr pre i { color:var(--magenta); font-style:normal; font-weight:700; }
+  .pr button { align-self:flex-end; margin-top:10px; background:var(--azul); color:#fff; border:0; border-radius:999px; padding:8px 16px; font-weight:700; font-size:13px; cursor:pointer; }
+  .pr button:hover { background:var(--rosa); }
+  .days { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; }
+  .day { background:var(--gris); border-radius:12px; padding:16px 12px; text-align:center; }
+  .day .d { font-size:28px; font-weight:800; color:var(--rosa); line-height:1; } .day p { font-size:14px; color:var(--texto2); margin-top:8px; }
+  .day h4 { font-size:15px; color:var(--azul); margin-top:8px; }
+  footer { padding:36px 0; color:var(--texto2); font-size:14px; }
+  footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  footer img { height:34px; }
+  @media (max-width:760px) { .grid2, .grid3, dl.gl, .bank { grid-template-columns:1fr; } .days { grid-template-columns:repeat(2,1fr); } }
+  @media print { header, .toc, .btn, .pr button, footer { display:none; } .hero { padding:30px 0; } section { padding:24px 0; page-break-inside:avoid; } body { font-size:13px; } }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="assets/logo-cecomsa-colorido.png" alt="CECOMSA">
+  <nav><a href="index.html">← Charla</a><a href="presentacion.html">Presentación</a><a href="#" onclick="print();return false">Imprimir / PDF</a></nav>
+</div></header>
+
+<section class="hero" style="border:0"><div class="wrap">
+  <div class="kicker">Kit del participante</div>
+  <h1>Pon la IA a trabajar por ti</h1>
+  <p>Siete piezas para aplicar la charla desde mañana. Imprímelo o guárdalo como PDF: los campos en blanco son para llenar.</p>
+  <div class="toc">
+    <a href="#glosario">1 · Glosario</a><a href="#plantilla">2 · Plantilla de prompt</a><a href="#banco">3 · Banco de prompts</a><a href="#mapa">4 · Mapa de tu tarea</a><a href="#seguridad">5 · Seguridad</a><a href="#frases">6 · Frases que funcionan</a><a href="#reto">7 · Reto de 7 días</a>
+  </div>
+</div></section>
+
+<section id="glosario"><div class="wrap">
+  <h2><span>1</span>Glosario de bolsillo</h2>
+  <p class="lead">Las diez palabras que necesitas para entender cualquier conversación sobre IA en el trabajo.</p>
+  <dl class="gl">
+    <div><dt>Empresa</dt><dd>Quien construye la IA. Anthropic, OpenAI, Google.</dd></div>
+    <div><dt>Modelo</dt><dd>El “cerebro” entrenado. Claude Opus, GPT, Gemini. Es el motor.</dd></div>
+    <div><dt>Asistente / agente</dt><dd>Modelo + instrucciones + herramientas, listo para una tarea. El chat responde; el agente actúa.</dd></div>
+    <div><dt>Interfaz</dt><dd>Por donde lo usas: web, escritorio, móvil, Excel, WhatsApp.</dd></div>
+    <div><dt>Herramienta</dt><dd>Lo que le permite hacer cosas: buscar en internet, leer un PDF, enviar un correo, consultar un sistema.</dd></div>
+    <div><dt>Prompt</dt><dd>Lo que le escribes. La primera fuente de contexto.</dd></div>
+    <div><dt>Contexto</dt><dd>Todo lo que la IA tiene “sobre la mesa” al responder: lo que escribes, lo que le das a leer y sus instrucciones.</dd></div>
+    <div><dt>Alucinación</dt><dd>Cuando la IA inventa un dato, cita o fuente con total seguridad. Se verifica todo.</dd></div>
+    <div><dt>Prompt injection</dt><dd>Órdenes escondidas en un texto que la IA lee (un CV, un correo, una web) y que puede obedecer.</dd></div>
+    <div><dt>Skill</dt><dd>Un manual de procedimiento (instrucciones + plantillas + ejemplos) que el asistente carga cuando la tarea lo pide.</dd></div>
+    <div><dt>Rutina</dt><dd>Una tarea que el asistente hace igual cada vez, a demanda o programada.</dd></div>
+    <div><dt>Ventana de contexto</dt><dd>La memoria de trabajo de una conversación. Tiene fondo: lo del medio se diluye y las instrucciones viejas pierden peso.</dd></div>
+  </dl>
+</div></section>
+
+<section id="plantilla"><div class="wrap">
+  <h2><span>2</span>Plantilla de prompt</h2>
+  <p class="lead">Las seis piezas de la anatomía. No siempre necesitas todas; mientras más importante la tarea, más piezas conviene incluir.</p>
+  <div class="grid2">
+    <div class="form">
+      <div class="f"><label>1. Contexto</label><small>Quién eres, para quién es, por qué.</small><textarea placeholder="Soy… / Esto es para… / Lo necesito porque…"></textarea></div>
+      <div class="f"><label>2. Tarea</label><small>Qué necesitas, con un verbo claro.</small><textarea placeholder="Escribe / Resume / Compara / Arma…"></textarea></div>
+      <div class="f"><label>3. Insumos</label><small>Los datos o archivos a usar.</small><textarea placeholder="Usa este Excel / este correo / estas notas…"></textarea></div>
+      <div class="f"><label>4. Formato</label><small>Cómo quieres la respuesta.</small><textarea placeholder="Tabla / correo / 5 viñetas / 1 página…"></textarea></div>
+      <div class="f"><label>5. Criterio de calidad</label><small>Cómo sabrás que está bien.</small><textarea placeholder="Está bien si… / Debe incluir…"></textarea></div>
+      <div class="f"><label>6. Límites</label><small>Qué no hacer, tono, extensión.</small><textarea placeholder="Máximo … palabras / Tono … / No menciones…"></textarea></div>
+    </div>
+    <div class="card" style="background:var(--azul); color:#fff">
+      <div class="kicker">Ejemplo resuelto</div>
+      <p style="font-size:15.5px; line-height:1.55"><b style="color:var(--rosa)">[Contexto]</b> Soy coordinadora de servicio al cliente en una distribuidora. <b style="color:var(--rosa)">[Tarea]</b> Escribe un correo para un cliente corporativo cuyo pedido de 40 laptops llegará 5 días tarde por un retraso en aduanas. <b style="color:var(--rosa)">[Criterio]</b> Objetivo: mantener la relación. <b style="color:var(--rosa)">[Límites]</b> Tono profesional y cercano, sin excusas largas. <b style="color:var(--rosa)">[Insumos]</b> Incluye: disculpa breve, nueva fecha (22 de octubre), qué estamos haciendo para que no se repita y un contacto directo. <b style="color:var(--rosa)">[Formato]</b> Máximo 150 palabras. Dame 2 versiones: una formal y una más cálida.</p>
+      <p style="margin-top:20px; font-size:14px; color:rgba(255,255,255,.75)"><b>Regla de oro:</b> escríbelo como si se lo pidieras a una persona inteligente que empezó hoy.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="banco"><div class="wrap">
+  <h2><span>3</span>Banco de prompts para el trabajo</h2>
+  <p class="lead">Listos para copiar. Reemplaza lo que está en <b style="color:var(--magenta)">[corchetes]</b>. Todos siguen la anatomía: contexto, tarea, insumos, formato, criterio y límites.</p>
+  <div class="bank">
+    <div class="pr"><div class="cat">Correo</div><h4>Responder un correo difícil</h4><pre>Soy <i>[tu rol]</i> en <i>[área]</i>. Te pego un correo de <i>[cliente / proveedor / colega]</i> que <i>[reclama / pide / se queja de]</i>. Redacta una respuesta que <i>[objetivo: calmar, cerrar el tema, pedir más info]</i>. Tono profesional y cercano. Máximo 120 palabras. No prometas nada que no esté en mis notas. Dame 2 versiones.
+
+Correo recibido:
+<i>[pega el correo]</i>
+
+Mis notas:
+<i>[qué sí puedes ofrecer, qué no]</i></pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Reuniones</div><h4>Minuta a partir de notas</h4><pre>Convierte estas notas de reunión en una minuta con: 1) asistentes, 2) temas tratados, 3) decisiones tomadas, 4) tabla de acuerdos con responsable y fecha, 5) pendientes sin dueño. Usa solo lo que está en las notas; si falta un responsable o una fecha, márcalo como "por definir". Máximo 1 página.
+
+Reunión: <i>[nombre y fecha]</i>
+Notas:
+<i>[pega tus notas]</i></pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Documentos</div><h4>Resumir un documento largo</h4><pre>Resume este documento para <i>[quién lo va a leer: mi jefe, el equipo, un cliente]</i> que tiene 5 minutos. Formato: 3 ideas principales en viñetas, luego riesgos o decisiones pendientes, luego "qué necesitan de mí". No agregues información que no esté en el documento. Si algo es ambiguo, dilo.
+
+Documento:
+<i>[pega el texto o adjunta el archivo]</i></pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Datos</div><h4>Analizar una tabla de Excel</h4><pre>Te adjunto una tabla de <i>[ventas / tickets / inventario]</i> con las columnas <i>[lista las columnas]</i>. Dime: 1) los 3 hallazgos más importantes, 2) qué se sale de lo normal, 3) qué preguntas haría un gerente al ver esto. Muestra los números que respaldan cada hallazgo. No inventes datos que no estén en la tabla.
+
+<i>[adjunta el archivo o pega las filas]</i></pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Comunicación</div><h4>Comunicado interno</h4><pre>Soy <i>[rol]</i>. Escribe un comunicado interno para <i>[destinatarios]</i> anunciando <i>[qué cambia]</i>. Estructura: qué cambia, desde cuándo, qué tienen que hacer ellos, a quién preguntar. Tono institucional: directo, claro, respetuoso, sin tecnicismos. Máximo 200 palabras.
+
+Datos clave:
+<i>[fecha, responsable, detalles]</i></pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Planificación</div><h4>Priorizar mi semana</h4><pre>Estos son mis pendientes de la semana: <i>[lista]</i>. Mis prioridades del trimestre son <i>[1, 2, 3]</i>. Organízalos en una tabla con: tarea, prioridad (alta/media/baja), por qué, y día sugerido. Marca cuáles podría delegar o eliminar. Pregúntame si falta información antes de asumir.</pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Procesos</div><h4>Documentar un procedimiento</h4><pre>Te explico cómo hago <i>[proceso]</i> paso a paso: <i>[descríbelo como se lo contarías a un compañero nuevo]</i>. Conviértelo en un procedimiento con: objetivo, quién lo hace, pasos numerados, qué puede salir mal en cada paso y cómo verificar que quedó bien. Pregúntame lo que no quede claro antes de escribirlo.</pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Propuestas</div><h4>Preparar una propuesta o justificación</h4><pre>Necesito justificar <i>[compra / proyecto / cambio]</i> ante <i>[quién decide]</i>. Problema actual: <i>[describe]</i>. Lo que propongo: <i>[describe]</i>. Costo aproximado: <i>[monto]</i>. Arma una propuesta de 1 página con: problema, propuesta, beneficios medibles, riesgos de no hacerlo y próximos pasos. Dame además las 3 objeciones más probables y cómo responderlas.</pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Aprender</div><h4>Entender algo nuevo rápido</h4><pre>Explícame <i>[tema]</i> como a alguien de <i>[tu área]</i> que no es técnico. Primero en 3 frases, luego con una analogía del trabajo diario, luego los 3 errores más comunes al empezar. Al final, dime qué debería preguntar para profundizar. Si no estás seguro de algo, dilo.</pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Revisión</div><h4>Revisar un texto antes de enviarlo</h4><pre>Revisa este texto que voy a enviar a <i>[quién]</i>. No lo reescribas completo: dame una lista de 1) errores de ortografía o gramática, 2) frases confusas y cómo aclararlas, 3) algo que pueda sonar mal o malinterpretarse. Mantén mi tono.
+
+Texto:
+<i>[pega el texto]</i></pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Verificar</div><h4>Hacer que se revise a sí misma</h4><pre>Revisa tu respuesta anterior. Marca cada dato, cifra, nombre o cita como: ✓ viene de lo que te di, ? es una suposición tuya, ✗ no tienes forma de saberlo. Luego dame la lista de lo que yo debería verificar antes de usarla.</pre><button>Copiar</button></div>
+
+    <div class="pr"><div class="cat">Instrucciones</div><h4>Crear tus instrucciones permanentes</h4><pre>Voy a usarte seguido para mi trabajo. Soy <i>[rol]</i> en <i>[empresa / área]</i>. Mis tareas más comunes son <i>[lista]</i>. Prefiero respuestas <i>[cortas / en tablas / en español neutro]</i>. Nunca <i>[inventes datos / uses tecnicismos / etc.]</i>. Escríbeme un texto de instrucciones permanentes (máximo 150 palabras) que pueda pegar en la configuración de mi asistente para no repetir esto cada vez.</pre><button>Copiar</button></div>
+  </div>
+</div></section>
+
+<section id="mapa"><div class="wrap">
+  <h2><span>4</span>Mapa de tu primera tarea</h2>
+  <p class="lead">Una buena primera tarea cumple los cuatro criterios. Empieza por <b>optimizar</b> (que lo haga contigo) antes de <b>automatizar</b> (que lo haga sola).</p>
+  <div class="grid3" style="grid-template-columns:repeat(4,1fr); margin-bottom:22px">
+    <div class="card"><b style="color:var(--azul)">Repetitiva</b><br><small style="color:var(--texto2)">Cada día o semana</small></div>
+    <div class="card"><b style="color:var(--azul)">Digital</b><br><small style="color:var(--texto2)">Correos, Excel, PDFs</small></div>
+    <div class="card"><b style="color:var(--azul)">Verificable</b><br><small style="color:var(--texto2)">Sabes si quedó bien</small></div>
+    <div class="card"><b style="color:var(--azul)">Bajo riesgo</b><br><small style="color:var(--texto2)">Un error no cuesta caro</small></div>
+  </div>
+  <table>
+    <tr><th>Tarea</th><th>Frecuencia</th><th>Tiempo</th><th>Insumos</th><th>Resultado esperado</th><th>Quién revisa</th></tr>
+    <tr class="ex"><td>Resumen semanal de pendientes</td><td>Semanal</td><td>1 h</td><td>Correos + notas</td><td>1 página con prioridades</td><td>Yo</td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+</div></section>
+
+<section id="seguridad"><div class="wrap">
+  <h2><span>5</span>Checklist de seguridad</h2>
+  <p class="lead">Antes de pegar algo en la IA o de usar lo que te devolvió, pasa por estas preguntas.</p>
+  <div class="grid2">
+    <div class="card"><div class="kicker">Antes de enviar</div>
+      <ul class="check"><li>¿Es una herramienta aprobada por la empresa?</li><li>¿Hay datos de clientes, empleados o proveedores? Anonimízalos.</li><li>¿Hay contraseñas, claves o números de cuenta? Nunca.</li><li>¿Le di más permisos de los que necesita la tarea?</li><li>¿El documento que va a leer viene de un tercero? Puede traer órdenes escondidas.</li></ul></div>
+    <div class="card"><div class="kicker">Antes de usar el resultado</div>
+      <ul class="check"><li>¿Verifiqué cada dato, cifra, cita y fuente?</li><li>¿Alguien lo revisa antes de que salga a un cliente, un pago o una decisión?</li><li>¿Tiene consecuencias legales o de RR.HH.? La IA asiste, la persona decide.</li><li>¿Revisarlo me tomó más que hacerlo? Entonces no era la herramienta.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="frases"><div class="wrap">
+  <h2><span>6</span>Frases que sí funcionan</h2>
+  <p class="lead">“Hazlo mejor” no dice qué está mal ni cómo se ve bien. Estas sí. Cuanto más específica la crítica, más útil la corrección.</p>
+  <div class="grid2">
+    <div>
+      <div class="phr"><b>Extensión</b>“Es muy largo: déjalo en 3 párrafos.”</div>
+      <div class="phr"><b>Tono</b>“Suena a robot: escríbelo como se lo dirías a un colega.”</div>
+      <div class="phr"><b>Falta algo</b>“Falta la fecha de entrega en el primer párrafo.”</div>
+      <div class="phr"><b>Sobra algo</b>“Quita la parte de las excusas; ve directo a la solución.”</div>
+      <div class="phr"><b>Estructura</b>“Ponlo en una tabla con columnas: tarea, responsable, fecha.”</div>
+    </div>
+    <div>
+      <div class="phr"><b>Opciones</b>“Dame 2 versiones: una formal y una más cálida.”</div>
+      <div class="phr"><b>Enfoque</b>“Céntrate solo en el riesgo de costos; lo demás no importa ahora.”</div>
+      <div class="phr"><b>Fuentes</b>“Marca qué partes vienen de mi documento y cuáles son tuyas.”</div>
+      <div class="phr"><b>Antes de asumir</b>“Si te falta información, pregúntame antes de responder.”</div>
+      <div class="phr"><b>Nivel</b>“Explícalo para alguien que no es técnico, con un ejemplo del trabajo.”</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="reto" style="border:0"><div class="wrap">
+  <h2><span>7</span>Reto de 7 días</h2>
+  <p class="lead">Un paso por día. Al final de la semana tendrás tu primera tarea con IA funcionando y una medida real de cuánto tiempo ganaste.</p>
+  <div class="days">
+    <div class="day"><div class="d">1</div><h4>Elige</h4><p>Llena tu mapa con una tarea.</p></div>
+    <div class="day"><div class="d">2</div><h4>Escribe</h4><p>Arma el prompt con la plantilla.</p></div>
+    <div class="day"><div class="d">3</div><h4>Corre</h4><p>Ejecútalo y guarda el resultado.</p></div>
+    <div class="day"><div class="d">4</div><h4>Corrige</h4><p>Usa una frase específica, no “hazlo mejor”.</p></div>
+    <div class="day"><div class="d">5</div><h4>Guarda</h4><p>Lo que repites va a las instrucciones permanentes.</p></div>
+    <div class="day"><div class="d">6</div><h4>Mide</h4><p>Tiempo antes vs. después.</p></div>
+    <div class="day"><div class="d">7</div><h4>Comparte</h4><p>Cuéntaselo a alguien del equipo.</p></div>
+  </div>
+  <a class="btn" href="presentacion.html">Volver a la presentación →</a>
+</div></section>
+
+<footer><div class="wrap">
+  <img src="assets/logo-cecomsa-colorido.png" alt="CECOMSA">
+  <span>Kit del participante · Pon la IA a trabajar por ti · Solenny Peralta</span>
+</div></footer>
+
+<script>
+  document.querySelectorAll('.pr button').forEach(b => b.onclick = async () => {
+    const t = b.parentElement.querySelector('pre').innerText;
+    try { await navigator.clipboard.writeText(t); b.textContent = '¡Copiado!'; setTimeout(() => b.textContent = 'Copiar', 1500); } catch { b.textContent = 'Selecciona y copia'; }
+  });
+</script>
+</body>
+</html>
