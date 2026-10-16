@@ -28,7 +28,7 @@ FIRMA = ('<div class="firma"><b>Solenny Peralta</b>'
 
 # (slug, número, título de pestaña, título, descripción, pdf)
 PAGES = [
-    ("glosario",  "01", "Glosario",          "Glosario de bolsillo",           "Las doce palabras que necesitas para entender cualquier conversación sobre IA en el trabajo.", "01-glosario.pdf"),
+    ("glosario",  "01", "Glosario",          "Glosario de bolsillo",           "Las trece palabras que necesitas para entender cualquier conversación sobre IA en el trabajo.", "01-glosario.pdf"),
     ("plantilla", "02", "Plantilla",         "Plantilla de prompt",            "Las seis piezas de un buen prompt, para llenar. Mientras más importante la tarea, más piezas conviene usar.", "02-plantilla-de-prompt.pdf"),
     ("prompts",   "03", "Banco de prompts",  "Banco de prompts para el trabajo", "Listos para copiar. Cambia lo que está en [corchetes rosa] y pégalo en tu asistente.", "03-banco-de-prompts.pdf"),
     ("mapa",      "04", "Mapa",              "Mapa de tu primera tarea",       "Elige bien la primera tarea y ya ganaste la mitad. Una buena candidata cumple los cuatro criterios.", "04-mapa-primera-tarea.pdf"),
@@ -48,6 +48,7 @@ GLOSARIO = [
     ("contexto", "Todo lo que la IA tiene sobre la mesa al responder: lo que escribes, lo que le das a leer y sus instrucciones.", "mismo modelo + mejor contexto = mejor resultado"),
     ("alucinación", "Cuando la IA inventa un dato, cita o fuente con total seguridad.", "regla: todo dato se verifica"),
     ("prompt injection", "Órdenes escondidas en un texto que la IA lee y que puede obedecer.", "el CV con letra blanca"),
+    ("proyecto", "Un espacio para un tema de trabajo con sus propias instrucciones y archivos. Cada chat que abres dentro ya arranca con ese contexto.", "“Correos a clientes” · “Reportes de ventas”"),
     ("skill", "Un manual de procedimiento (instrucciones + plantillas + ejemplos) que el asistente carga cuando la tarea lo pide.", "minutas · informes · propuestas"),
     ("rutina", "Una tarea que el asistente hace igual cada vez, a demanda o programada.", "“resumen de mi lunes”"),
     ("ventana de contexto", "La memoria de trabajo de una conversación. Tiene fondo: lo del medio se diluye.", "un chat por tema"),
@@ -124,8 +125,8 @@ PROMPTS = [
     ("instrucciones", "Crear tus instrucciones permanentes",
      "Voy a usarte seguido para mi trabajo. Soy [rol] en [empresa / área]. Mis tareas más comunes son [lista]. "
      "Prefiero respuestas [cortas / en tablas / en español neutro]. Nunca [inventes datos / uses tecnicismos / etc.]. "
-     "Escríbeme un texto de instrucciones permanentes (máximo 150 palabras) que pueda pegar en la configuración de mi "
-     "asistente para no repetir esto cada vez."),
+     "Escríbeme un texto de instrucciones (máximo 150 palabras) que pueda pegar en un proyecto de mi asistente para "
+     "no repetir esto cada vez."),
 ]
 
 CRITERIOS = [("repetitiva", "Cada día o cada semana."), ("digital", "Correos, Excel, PDFs, sistemas."),
@@ -133,7 +134,7 @@ CRITERIOS = [("repetitiva", "Cada día o cada semana."), ("digital", "Correos, E
 MAPA_COLS = ["Tarea", "Frecuencia", "Tiempo que toma", "Insumos", "Resultado esperado", "Quién revisa"]
 MAPA_EJ = ["Resumen semanal de pendientes", "Semanal", "1 h", "Correos + notas", "1 página con prioridades", "Yo"]
 
-SEG_ANTES = ["¿Es una herramienta aprobada por la empresa?",
+SEG_ANTES = ["¿Revisé en la configuración si mis conversaciones se usan para entrenar el modelo?",
              "¿Hay datos de clientes, empleados o proveedores? Anonimízalos.",
              "¿Hay contraseñas, claves o números de cuenta? Nunca.",
              "¿Le di más permisos de los que necesita la tarea?",
@@ -158,7 +159,7 @@ FRASES = [
 
 RETO = [("elige", "Llena tu mapa con una tarea."), ("escribe", "Arma el prompt con la plantilla."),
         ("corre", "Ejecútalo y guarda el resultado."), ("corrige", "Usa una frase específica, no “hazlo mejor”."),
-        ("guarda", "Lo que repites va a tus instrucciones permanentes."), ("mide", "Tiempo antes vs. después."),
+        ("guarda", "Crea un proyecto con las instrucciones que repites."), ("mide", "Tiempo antes vs. después."),
         ("comparte", "Cuéntaselo a alguien del equipo.")]
 
 # ---------------------------------------------------------------- helpers
@@ -347,6 +348,11 @@ def build_index():
   <div class="eyebrow">// las piezas</div><h2>Elige por dónde empezar.</h2>
   <p class="lead">Si solo tienes cinco minutos: abre el <a href="mapa.html">mapa</a>, elige una tarea y usa un prompt del <a href="prompts.html">banco</a>.</p>
   <div class="grid g3">{cards}</div>
+</div></section>
+<section class="band"><div class="wrap">
+  <div class="eyebrow" style="color:#E31C79">// lo que sigue · 21 de noviembre · 3 horas · 100% práctico</div>
+  <p class="quote">Workshop: <em>Tu primera tarea resuelta con IA</em> de principio a fin.</p>
+  <p style="color:rgba(255,255,255,.8);margin-top:14px;max-width:60ch">Trae tu mapa lleno y tu IA lista. Te vas con la tarea resuelta.</p>
 </div></section>
 <section class="sec" id="descargas"><div class="wrap">
   <div class="eyebrow">// descargas</div><h2>Llévatelo.</h2>

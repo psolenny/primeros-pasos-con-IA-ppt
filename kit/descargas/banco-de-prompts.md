@@ -106,5 +106,5 @@ Revisa tu respuesta anterior. Marca cada dato, cifra, nombre o cita como: ✓ vi
 ## 14 · Crear tus instrucciones permanentes (instrucciones)
 
 ```
-Voy a usarte seguido para mi trabajo. Soy [rol] en [empresa / área]. Mis tareas más comunes son [lista]. Prefiero respuestas [cortas / en tablas / en español neutro]. Nunca [inventes datos / uses tecnicismos / etc.]. Escríbeme un texto de instrucciones permanentes (máximo 150 palabras) que pueda pegar en la configuración de mi asistente para no repetir esto cada vez.
+Voy a usarte seguido para mi trabajo. Soy [rol] en [empresa / área]. Mis tareas más comunes son [lista]. Prefiero respuestas [cortas / en tablas / en español neutro]. Nunca [inventes datos / uses tecnicismos / etc.]. Escríbeme un texto de instrucciones (máximo 150 palabras) que pueda pegar en un proyecto de mi asistente para no repetir esto cada vez.
 ```
