@@ -1,0 +1,9 @@
+{
+  "name": "primeros-pasos-con-ia-ppt",
+  "private": true,
+  "type": "module",
+  "description": "Sitio de la charla y bot TecnoDemo (función de Vercel en api/)",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0"
+  }
+}

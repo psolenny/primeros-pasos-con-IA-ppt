@@ -1,3 +1,5 @@
+.DS_Store
+.vercel
 _preview.pdf
 node_modules/
-.DS_Store
+.env*

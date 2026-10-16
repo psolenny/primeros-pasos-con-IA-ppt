@@ -1,0 +1,9 @@
+# En Vercel solo vive la función del bot y su página; el resto del sitio está en GitHub Pages.
+*.pptx
+*.pdf
+kit/
+demos/
+scripts/
+build.js
+ESQUEMA.md
+presentacion.html
