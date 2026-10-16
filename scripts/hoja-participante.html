@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hoja del participante · Pon la IA a trabajar por ti</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Hoja carta a dos caras. Pensada para imprimir en oficina: fondo blanco, color solo en acentos. */
+  @page { size: Letter; margin: 0; }
+  :root { --azul:#002F6C; --mag:#A20067; --rosa:#E31C79; --ink:#000; --ink2:#3d4150; --muted:#6b7080; --line:#c9ccd6; --soft:#f4f5f8; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', Helvetica, Arial, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 8.5in; height: 11in; padding: 0.5in 0.55in; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: var(--azul); }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--mag); }
+  .hl { background: var(--rosa); color: #fff; padding: 0 .12em; border-radius: 3px; }
+  .top { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--ink); padding-bottom: 10px; }
+  .top img { height: 34px; }
+  .top .who { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--muted); line-height: 1.5; }
+  .title { margin: 14px 0 4px; }
+  .title h1 { font-size: 26pt; line-height: 1.02; }
+  .title p { font-size: 10.5pt; color: var(--ink2); margin-top: 4px; }
+  .name { display: flex; gap: 10px; align-items: flex-end; margin: 10px 0 14px; font-size: 10pt; font-weight: 600; color: var(--azul); }
+  .name span { flex: 1; border-bottom: 1.5px solid var(--ink); height: 18px; }
+  .box { border: 2.5px solid var(--ink); border-radius: 12px; padding: 12px 14px; box-shadow: 4px 4px 0 var(--ink); background: #fff; }
+  .box + .box { margin-top: 14px; }
+  .box h2 { font-size: 14pt; margin: 2px 0 8px; }
+  .crit { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+  .crit div { border: 1.5px solid var(--ink); border-radius: 8px; padding: 6px 8px; font-size: 8.5pt; line-height: 1.25; }
+  .crit b { display: flex; align-items: center; gap: 6px; font-size: 9.5pt; color: var(--azul); }
+  .crit b::before { content: ""; width: 11px; height: 11px; border: 2px solid var(--rosa); border-radius: 3px; flex: none; }
+  .crit span { color: var(--muted); }
+  .field { display: grid; grid-template-columns: 1.55in 1fr; gap: 10px; align-items: end; padding: 7px 0; border-bottom: 1.2px solid var(--line); font-size: 9.5pt; }
+  .field:last-child { border-bottom: 0; }
+  .field b { color: var(--azul); }
+  .field small { display: block; color: var(--muted); font-size: 7.5pt; font-weight: 400; }
+  .field i { display: block; height: 18px; }
+  .field.tall i { height: 30px; }
+  .save { display: flex; align-items: center; gap: 10px; margin-top: 10px; background: var(--soft); border-radius: 8px; padding: 8px 10px; font-size: 9.5pt; }
+  .save b { color: var(--mag); }
+  .save .blank { width: 70px; border-bottom: 1.5px solid var(--ink); height: 16px; }
+  .anat { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  .anat .f { padding: 6px 0; border-bottom: 1.2px solid var(--line); font-size: 9pt; }
+  .anat .f b { font-family: 'JetBrains Mono', monospace; color: var(--mag); font-size: 8pt; text-transform: uppercase; letter-spacing: .05em; }
+  .anat .f i { display: block; height: 46px; }
+  .foot { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--muted); }
+  /* reverso */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .mini h3 { font-size: 12pt; margin-bottom: 6px; }
+  .mini ol, .mini ul { margin-left: 16px; font-size: 9pt; line-height: 1.45; color: var(--ink2); }
+  .mini li { margin-bottom: 3px; }
+  .mini li b { color: var(--ink); }
+  .q { font-size: 9pt; padding: 5px 0; border-bottom: 1.2px solid var(--line); }
+  .q:last-child { border-bottom: 0; }
+  .q b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--mag); text-transform: uppercase; letter-spacing: .06em; }
+  .ws { background: var(--ink); color: #fff; border-radius: 14px; padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 14px; box-shadow: 5px 5px 0 var(--rosa); }
+  .ws h2 { color: #fff; font-size: 17pt; line-height: 1.1; margin: 4px 0 8px; }
+  .ws .eyebrow { color: var(--rosa); }
+  .ws .facts { font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; line-height: 1.7; }
+  .ws .facts b { color: var(--rosa); display: inline-block; min-width: 72px; }
+  .qr { text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; }
+  .qr img { width: 1.15in; height: 1.15in; display: block; background: #fff; border: 2px solid var(--ink); border-radius: 8px; padding: 3px; margin: 0 auto 4px; }
+  .ws .qr { color: #fff; }
+  .ws .qr img { border-color: #fff; }
+  .kitrow { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-top: 14px; }
+  .kitrow p { font-size: 9.5pt; color: var(--ink2); line-height: 1.45; }
+  .kitrow p b { color: var(--azul); }
+</style>
+</head>
+<body>
+
+<!-- ============ FRENTE ============ -->
+<section class="page">
+  <div class="top">
+    <img src="../assets/logo-cecomsa-color.png" alt="CECOMSA">
+    <div class="who">Pon la IA a trabajar por ti<br>Solenny Peralta · Gerente de Proyectos de Innovación y Servicios TI</div>
+  </div>
+
+  <div class="title">
+    <div class="eyebrow">// hoja del participante · llénala durante la charla</div>
+    <h1>Tu primera tarea <span class="hl">con IA</span>.</h1>
+    <p>Elige una tarea real de tu trabajo, escríbele un buen prompt y tráela al workshop.</p>
+  </div>
+  <div class="name">Nombre <span></span> Área <span style="flex:.6"></span></div>
+
+  <div class="box">
+    <div class="eyebrow">// 01 · el mapa</div>
+    <h2>¿Qué tarea vas a poner a trabajar?</h2>
+    <div class="crit">
+      <div><b>Repetitiva</b><span>cada día o semana</span></div>
+      <div><b>Digital</b><span>correos, Excel, PDFs</span></div>
+      <div><b>Verificable</b><span>sabes si quedó bien</span></div>
+      <div><b>Bajo riesgo</b><span>un error no cuesta caro</span></div>
+    </div>
+    <div class="field tall"><b>La tarea<small>qué haces, en una frase</small></b><i></i></div>
+    <div class="field"><b>Frecuencia<small>¿cada cuánto?</small></b><i></i></div>
+    <div class="field"><b>Tiempo que toma hoy<small>por vez</small></b><i></i></div>
+    <div class="field"><b>Insumos<small>qué usas: archivos, correos…</small></b><i></i></div>
+    <div class="field"><b>Resultado esperado<small>qué entregas al final</small></b><i></i></div>
+    <div class="field"><b>Quién revisa<small>antes de que salga</small></b><i></i></div>
+    <div class="save">⏱ <b>Con IA me ahorraría</b> <span class="blank"></span> minutos por semana.</div>
+  </div>
+
+  <div class="box">
+    <div class="eyebrow">// 02 · tu prompt</div>
+    <h2>Escríbelo con las 6 piezas.</h2>
+    <div class="anat">
+      <div class="f"><b>1 · Contexto</b> — quién eres, para quién, por qué<i></i></div>
+      <div class="f"><b>4 · Formato</b> — tabla, correo, viñetas, 1 página<i></i></div>
+      <div class="f"><b>2 · Tarea</b> — qué necesitas, con un verbo claro<i></i></div>
+      <div class="f"><b>5 · Calidad</b> — cómo sabrás que está bien<i></i></div>
+      <div class="f"><b>3 · Insumos</b> — los datos o archivos a usar<i></i></div>
+      <div class="f"><b>6 · Límites</b> — qué no hacer, tono, extensión<i></i></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Regla de oro: escríbelo como si se lo pidieras a una persona inteligente que empezó hoy.</span><span>1/2 →</span></div>
+</section>
+
+<!-- ============ REVERSO ============ -->
+<section class="page">
+  <div class="top">
+    <img src="../assets/logo-cecomsa-color.png" alt="CECOMSA">
+    <div class="who">Pon la IA a trabajar por ti<br>Solenny Peralta · Gerente de Proyectos de Innovación y Servicios TI</div>
+  </div>
+
+  <div class="grid2">
+    <div class="box mini">
+      <div class="eyebrow">// en vez de "hazlo mejor"</div>
+      <h3>Frases que sí funcionan</h3>
+      <div class="q"><b>largo</b>“Es muy largo: déjalo en 3 párrafos.”</div>
+      <div class="q"><b>tono</b>“Suena a robot: escríbelo como se lo dirías a un colega.”</div>
+      <div class="q"><b>falta algo</b>“Falta la fecha de entrega en el primer párrafo.”</div>
+      <div class="q"><b>opciones</b>“Dame 2 versiones: una formal y una más cálida.”</div>
+      <div class="q"><b>antes de asumir</b>“Si te falta información, pregúntame antes de responder.”</div>
+    </div>
+    <div class="box mini">
+      <div class="eyebrow">// antes de pegar o de usar</div>
+      <h3>Checklist de seguridad</h3>
+      <ul>
+        <li><b>Nada de contraseñas</b>, claves ni números de cuenta.</li>
+        <li><b>Anonimiza</b> datos de clientes y empleados.</li>
+        <li><b>Desconfía</b> de documentos de terceros: pueden traer órdenes escondidas.</li>
+        <li><b>Verifica</b> cada dato, cifra, cita y fuente.</li>
+        <li><b>Una persona revisa</b> antes de que algo salga a un cliente o a un pago.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box mini" style="margin-top:14px">
+    <div class="eyebrow">// para trabajar todos los días</div>
+    <h3>Tres buenas prácticas</h3>
+    <ol>
+      <li><b>Usa una IA de pago, una sola,</b> y apréndela bien. Revisa en la configuración si tus conversaciones se usan para entrenar.</li>
+      <li><b>Crea un proyecto por tema de trabajo</b> con sus propias instrucciones y archivos. Dentro, un chat por tarea.</li>
+      <li><b>Si la conversación se alargó,</b> pide un resumen y empieza un chat nuevo con él.</li>
+    </ol>
+  </div>
+
+  <div class="kitrow">
+    <div class="qr"><img src="../assets/qr-kit.png" alt="QR al kit">KIT</div>
+    <p><b>El kit del participante:</b> glosario, plantilla de prompt, <b>banco de 14 prompts</b> listos para copiar, mapa, checklist de seguridad y frases que funcionan. Todo en PDF.<br><span class="mono" style="font-size:8pt;color:var(--muted)">psolenny.github.io/primeros-pasos-con-IA-ppt/kit</span></p>
+  </div>
+
+  <div class="ws">
+    <div>
+      <div class="eyebrow">// lo que sigue · solo 20 lugares</div>
+      <h2>Workshop: Tu primera tarea resuelta con IA de principio a fin.</h2>
+      <div class="facts">
+        <b>cuándo</b>21 de noviembre<br>
+        <b>duración</b>3 horas · 100% práctico<br>
+        <b>trae</b>laptop · tu IA instalada · esta hoja
+      </div>
+    </div>
+    <div class="qr"><img src="../assets/qr-workshop.png" alt="QR para inscribirse al workshop">INSCRÍBETE</div>
+  </div>
+
+  <div class="foot"><span>Contexto · Especificidad · Verificación</span><span>2/2</span></div>
+</section>
+
+</body>
+</html>

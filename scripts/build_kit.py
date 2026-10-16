@@ -34,7 +34,6 @@ PAGES = [
     ("mapa",      "04", "Mapa",              "Mapa de tu primera tarea",       "Elige bien la primera tarea y ya ganaste la mitad. Una buena candidata cumple los cuatro criterios.", "04-mapa-primera-tarea.pdf"),
     ("seguridad", "05", "Seguridad",         "Checklist de seguridad",         "Antes de pegar algo en la IA, y antes de usar lo que te devolvió.", "05-checklist-seguridad.pdf"),
     ("frases",    "06", "Frases",            "Frases que sí funcionan",        "“Hazlo mejor” no dice qué está mal ni cómo se ve bien. Estas sí.", "06-frases-que-funcionan.pdf"),
-    ("reto",      "07", "Reto 7 días",       "Reto de 7 días",                 "Un paso por día. Al final de la semana tienes tu primera tarea con IA funcionando y sabes cuánto tiempo ganaste.", "07-reto-7-dias.pdf"),
 ]
 
 # ---------------------------------------------------------------- contenido
@@ -157,10 +156,6 @@ FRASES = [
     ("nivel", "Explícalo para alguien que no es técnico, con un ejemplo del trabajo.", "Define a quién le habla."),
 ]
 
-RETO = [("elige", "Llena tu mapa con una tarea."), ("escribe", "Arma el prompt con la plantilla."),
-        ("corre", "Ejecútalo y guarda el resultado."), ("corrige", "Usa una frase específica, no “hazlo mejor”."),
-        ("guarda", "Crea un proyecto con las instrucciones que repites."), ("mide", "Tiempo antes vs. después."),
-        ("comparte", "Cuéntaselo a alguien del equipo.")]
 
 # ---------------------------------------------------------------- helpers
 e = html.escape
@@ -225,6 +220,13 @@ document.querySelectorAll('.filter button').forEach(function(b){{b.addEventListe
 """
 
 
+WORKSHOP_BOX = """<a class="box negro" href="../index.html#workshop" style="margin-top:40px">
+  <span class="n">// workshop · 21 de noviembre · 3 horas · 20 lugares</span>
+  <h3>Tu primera tarea resuelta con IA de principio a fin.</h3>
+  <p style="color:rgba(255,255,255,.85)">100% práctico. Trae laptop, tu IA instalada y tu mapa lleno. Inscríbete →</p>
+</a>"""
+
+
 def piece(i):
     slug, n, tab, title, desc, pdf = PAGES[i]
     prev_ = PAGES[i - 1] if i > 0 else None
@@ -233,9 +235,10 @@ def piece(i):
     pager += f'<a class="chip" href="{prev_[0]}.html">← {prev_[1]} · {prev_[2]}</a>' if prev_ else '<a class="chip" href="index.html">← Inicio del kit</a>'
     pager += f'<a class="chip p" href="{next_[0]}.html">{next_[1]} · {next_[2]} →</a>' if next_ else '<a class="chip p" href="index.html">Volver al inicio del kit →</a>'
     pager += '</div>'
+    pager = WORKSHOP_BOX + pager
     head = f"""<section class="hero"><div class="wrap">
   <div class="print-only print-head"><img src="../assets/logo-cecomsa-color.png" alt="CECOMSA"><span>Kit del participante · Pon la IA a trabajar por ti · Solenny Peralta</span></div>
-  <div class="tag">// kit · pieza {n} de 07</div>
+  <div class="tag">// kit · pieza {n} de {len(PAGES):02d}</div>
   <div class="pagehead"><h1>{e(title)}</h1><a class="chip n no-print" href="descargas/{pdf}" download>↓ descargar PDF</a></div>
   <p>{e(desc)}</p>
 </div></section>"""
@@ -316,24 +319,13 @@ def build_frases():
   __PAGER__</div></section>"""
 
 
-def build_reto():
-    days = "".join(f'<div class="day{" last" if k == 7 else ""}"><span class="d">día {k}</span><h4>{e(t)}</h4><p>{e(d)}</p></div>'
-                   for k, (t, d) in enumerate(RETO, 1))
-    return f"""<section class="sec"><div class="wrap"><div class="days">{days}</div>
-  <div class="grid g2" style="margin-top:30px">
-    <div class="box"><span class="n">// anota</span><h3>Tiempo antes</h3><p style="margin-top:30px;border-bottom:2px solid var(--ink)">&nbsp;</p></div>
-    <div class="box"><span class="n">// anota</span><h3>Tiempo después</h3><p style="margin-top:30px;border-bottom:2px solid var(--ink)">&nbsp;</p></div>
-  </div>
-  __PAGER__</div></section>"""
-
-
-BUILDERS = [build_glosario, build_plantilla, build_prompts, build_mapa, build_seguridad, build_frases, build_reto]
+BUILDERS = [build_glosario, build_plantilla, build_prompts, build_mapa, build_seguridad, build_frases]
 
 
 def build_index():
     cards = "".join(f'<a class="box" href="{s}.html"><span class="n">{n} · {e(tab)}</span><h3>{e(t)}</h3><p>{e(d)}</p></a>'
                     for s, n, tab, t, d, _ in PAGES)
-    dls = f'<a class="dlc big" href="descargas/{ZIP_NAME}" download><span class="ext zip">ZIP</span><span><b>Descargar todo el kit</b><small>Los 7 PDFs + banco de prompts en texto + mapa en CSV para Excel</small></span></a>'
+    dls = f'<a class="dlc big" href="descargas/{ZIP_NAME}" download><span class="ext zip">ZIP</span><span><b>Descargar todo el kit</b><small>Los 6 PDFs + la hoja del participante + banco de prompts en texto + mapa en CSV</small></span></a>'
     dls += "".join(f'<a class="dlc" href="descargas/{pdf}" download><span class="ext">PDF</span><span><b>{n} · {e(t)}</b><small>{pdf}</small></span></a>'
                    for s, n, tab, t, d, pdf in PAGES)
     dls += '<a class="dlc" href="descargas/banco-de-prompts.md" download><span class="ext">MD</span><span><b>Banco de prompts en texto</b><small>para copiar sin formato</small></span></a>'
@@ -341,7 +333,7 @@ def build_index():
     body = f"""<section class="hero azul"><div class="wrap">
   <div class="tag">// kit del participante</div>
   <h1>Todo lo de la charla,<br>listo para <span class="hl">usar</span>.</h1>
-  <p>Siete piezas, una por pestaña. Léelas en línea, copia los prompts con un clic o descárgalo todo en un ZIP.</p>
+  <p>Seis piezas, una por pestaña. Léelas en línea, copia los prompts con un clic o descárgalo todo en un ZIP.</p>
   <div class="meta"><a class="chip p" href="descargas/{ZIP_NAME}" download>↓ descargar todo (ZIP)</a><a class="chip" href="prompts.html">ir al banco de prompts →</a></div>
 </div></section>
 <section class="sec"><div class="wrap">
@@ -359,7 +351,7 @@ def build_index():
   <p class="lead">Cada pieza tiene su PDF listo para imprimir. El ZIP trae todo junto.</p>
   <div class="dl">{dls}</div>
 </div></section>"""
-    return page("index", "Kit del participante", body, "index", "Glosario, plantilla de prompt, banco de prompts, mapa, seguridad, frases y reto de 7 días.")
+    return page("index", "Kit del participante", body, "index", "Glosario, plantilla de prompt, banco de prompts, mapa, seguridad y frases que funcionan.")
 
 
 def write_extras():
@@ -389,6 +381,7 @@ def make_zip():
     leeme = ("Kit del participante · Pon la IA a trabajar por ti\n"
              "Solenny Peralta · Gerente de Proyectos de Innovación y Servicios TI\n\n"
              "Contenido:\n" + "".join(f"  {p[5]}  {p[3]}\n" for p in PAGES) +
+             "  hoja-participante.pdf  La hoja de la charla, para imprimir\n"
              "  banco-de-prompts.md  Los prompts en texto plano, para copiar\n"
              "  mapa-primera-tarea.csv  El mapa para llenar en Excel\n\n"
              f"Versión en línea: https://{SITE}/kit/\n")
@@ -396,6 +389,9 @@ def make_zip():
         z.writestr("kit-participante/LEEME.txt", leeme)
         for p in PAGES:
             z.write(DL / p[5], f"kit-participante/{p[5]}")
+        hoja = ROOT / "material" / "hoja-participante.pdf"
+        if hoja.exists():
+            z.write(hoja, "kit-participante/hoja-participante.pdf")
         z.write(DL / "banco-de-prompts.md", "kit-participante/banco-de-prompts.md")
         z.write(DL / "mapa-primera-tarea.csv", "kit-participante/mapa-primera-tarea.csv")
 
