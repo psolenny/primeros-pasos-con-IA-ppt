@@ -20,7 +20,7 @@
 </div></header>
 
 <section class="hero azul"><div class="wrap">
-  <div class="tag">// charla · primeros pasos con ia · ~60 min</div>
+  <div class="tag">// charla · primeros pasos con ia · ~90 min</div>
   <h1>Pon la IA a trabajar<br><span class="hl">por ti</span>.</h1>
   <p>De responder preguntas, a hacer el trabajo contigo. Qué es un agente, cómo se equivoca, cómo pedirle bien y cuál es tu primera tarea para ponerla a trabajar.</p>
   <div class="meta">
@@ -42,7 +42,7 @@
     <div class="box rosa"><span class="n">☕ · recordatorio</span><h3>Cafecito</h3><p style="color:#fff">El café está en el salón. Sírvete cuando quieras.</p></div>
     <div class="box"><span class="n">05 · pedir bien</span><h3>El arte de pedir bien</h3><p>Anatomía de un prompt, un antes y después, y por qué “hazlo mejor” no sirve.</p></div>
     <div class="box"><span class="n">06 · tu primera tarea</span><h3>Ponla a trabajar</h3><p>El mapa para elegirla, por qué usar una IA de pago, rutinas, skills y cuándo la IA no es la herramienta.</p></div>
-    <a class="box azul" href="presentacion.html" style="grid-column:span 3"><span class="n">// slides</span><h3>Ver la presentación completa →</h3><p>30 láminas. Flechas para avanzar, <b style="color:#fff">f</b> pantalla completa, <b style="color:#fff">o</b> índice.</p></a>
+    <a class="box azul" href="presentacion.html" style="grid-column:span 2"><span class="n">// slides</span><h3>Ver la presentación completa →</h3><p>31 láminas. Flechas para avanzar, <b style="color:#fff">f</b> pantalla completa, <b style="color:#fff">o</b> índice.</p></a>
   </div>
 </div></section>
 
@@ -55,7 +55,16 @@
   <div class="box negro" style="padding:34px">
     <span class="n">workshop · 3 horas · 100% práctico</span>
     <h3 style="font-size:clamp(26px,3.6vw,40px);margin:8px 0 14px">Tu primera tarea resuelta con IA de principio a fin.</h3>
-    <p style="color:rgba(255,255,255,.85);font-size:17px;max-width:60ch">Hoy viste cómo; ese día lo haces. Trae tu <a href="kit/mapa.html" style="color:#E31C79">mapa</a> lleno y tu IA lista: te vas con la tarea resuelta.</p>
+    <p style="color:rgba(255,255,255,.85);font-size:17px;max-width:60ch">Hoy viste cómo; ese día lo haces. Traes una tarea real de tu trabajo y te vas con ella resuelta.</p>
+    <div class="grid g3" style="margin-top:24px">
+      <div><span class="n">cuándo</span><p style="color:#fff;font-size:17px">21 de noviembre</p></div>
+      <div><span class="n">duración</span><p style="color:#fff;font-size:17px">3 horas</p></div>
+      <div><span class="n">requisitos</span><p style="color:#fff;font-size:17px">Laptop · tu IA de preferencia instalada · tu <a href="kit/mapa.html" style="color:#E31C79">mapa</a> lleno</p></div>
+    </div>
+    <div class="meta" style="margin-top:26px">
+      <a class="chip p" id="btn-inscripcion" href="#" target="_blank" rel="noopener">Inscríbete →</a>
+      <span id="inscripcion-pronto" style="display:none;font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(255,255,255,.7);align-self:center">Las inscripciones abren pronto.</span>
+    </div>
   </div>
 </div></section>
 
@@ -79,5 +88,12 @@
   <img src="assets/logo-cecomsa-color.png" alt="CECOMSA">
   <div class="firma"><b>Solenny Peralta</b><span>Gerente de Proyectos de Innovación y Servicios TI</span></div>
 </div></footer>
+<script>
+  // Enlace del formulario de Microsoft Forms. Pégalo aquí y el botón se activa solo.
+  var FORMS_URL = '';
+  var b = document.getElementById('btn-inscripcion');
+  if (FORMS_URL) { b.href = FORMS_URL; }
+  else { b.style.display = 'none'; document.getElementById('inscripcion-pronto').style.display = ''; }
+</script>
 </body>
 </html>
