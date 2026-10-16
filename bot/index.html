@@ -128,7 +128,11 @@ function add(cls, text, who) {
   var d = document.createElement('div');
   d.className = 'msg ' + cls;
   if (who) { var w = document.createElement('span'); w.className = 'who'; w.textContent = who; d.appendChild(w); }
-  d.appendChild(document.createTextNode(text));
+  // Solo negritas **así**: el resto va como texto plano, nunca como HTML.
+  text.split(/(\*\*[^*]+\*\*)/).forEach(function (part) {
+    if (/^\*\*[^*]+\*\*$/.test(part)) { var b = document.createElement('b'); b.textContent = part.slice(2, -2); d.appendChild(b); }
+    else if (part) d.appendChild(document.createTextNode(part));
+  });
   chat.appendChild(d);
   d.scrollIntoView({ block: 'end', behavior: 'smooth' });
   return d;
