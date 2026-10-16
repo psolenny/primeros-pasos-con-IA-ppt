@@ -10,7 +10,7 @@
   :root { --azul:#002F6C; --mag:#A20067; --rosa:#E31C79; --ink:#000; --ink2:#3d4150; --muted:#6b7080; --line:#c9ccd6; --soft:#f4f5f8; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', Helvetica, Arial, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .page { width: 8.5in; height: 11in; padding: 0.5in 0.55in; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+  .page { width: 8.5in; height: 11in; padding: 0.4in 0.55in; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
   .page:last-child { page-break-after: auto; }
   h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: var(--azul); }
   .mono { font-family: 'JetBrains Mono', monospace; }
@@ -24,7 +24,7 @@
   .title p { font-size: 10.5pt; color: var(--ink2); margin-top: 4px; }
   .name { display: flex; gap: 10px; align-items: flex-end; margin: 10px 0 14px; font-size: 10pt; font-weight: 600; color: var(--azul); }
   .name span { flex: 1; border-bottom: 1.5px solid var(--ink); height: 18px; }
-  .box { border: 2.5px solid var(--ink); border-radius: 12px; padding: 12px 14px; box-shadow: 4px 4px 0 var(--ink); background: #fff; }
+  .box { border: 2.5px solid var(--ink); border-radius: 12px; padding: 9px 12px; box-shadow: 4px 4px 0 var(--ink); background: #fff; }
   .box + .box { margin-top: 14px; }
   .box h2 { font-size: 14pt; margin: 2px 0 8px; }
   .crit { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
@@ -32,13 +32,13 @@
   .crit b { display: flex; align-items: center; gap: 6px; font-size: 9.5pt; color: var(--azul); }
   .crit b::before { content: ""; width: 11px; height: 11px; border: 2px solid var(--rosa); border-radius: 3px; flex: none; }
   .crit span { color: var(--muted); }
-  .field { display: grid; grid-template-columns: 1.55in 1fr; gap: 10px; align-items: end; padding: 7px 0; border-bottom: 1.2px solid var(--line); font-size: 9.5pt; }
+  .field { display: grid; grid-template-columns: 1.55in 1fr; gap: 10px; align-items: end; padding: 5px 0; border-bottom: 1.2px solid var(--line); font-size: 9.5pt; }
   .field:last-child { border-bottom: 0; }
   .field b { color: var(--azul); }
   .field small { display: block; color: var(--muted); font-size: 7.5pt; font-weight: 400; }
-  .field i { display: block; height: 18px; }
+  .field i { display: block; height: 15px; }
   .field.tall i { height: 30px; }
-  .save { display: flex; align-items: center; gap: 10px; margin-top: 10px; background: var(--soft); border-radius: 8px; padding: 8px 10px; font-size: 9.5pt; }
+  .save { display: flex; align-items: center; gap: 10px; margin-top: 8px; background: var(--soft); border-radius: 8px; padding: 6px 10px; font-size: 9pt; }
   .save b { color: var(--mag); }
   .save .blank { width: 70px; border-bottom: 1.5px solid var(--ink); height: 16px; }
   .anat { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
@@ -47,24 +47,24 @@
   .anat .f i { display: block; height: 46px; }
   .foot { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--muted); }
   /* reverso */
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-  .mini h3 { font-size: 12pt; margin-bottom: 6px; }
-  .mini ol, .mini ul { margin-left: 16px; font-size: 9pt; line-height: 1.45; color: var(--ink2); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .mini h3 { font-size: 11pt; margin-bottom: 4px; }
+  .mini ol, .mini ul { margin-left: 16px; font-size: 8.5pt; line-height: 1.4; color: var(--ink2); }
   .mini li { margin-bottom: 3px; }
   .mini li b { color: var(--ink); }
-  .q { font-size: 9pt; padding: 5px 0; border-bottom: 1.2px solid var(--line); }
+  .q { font-size: 8pt; padding: 3px 0; border-bottom: 1.2px solid var(--line); }
   .q:last-child { border-bottom: 0; }
   .q b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--mag); text-transform: uppercase; letter-spacing: .06em; }
-  .ws { background: var(--ink); color: #fff; border-radius: 14px; padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 14px; box-shadow: 5px 5px 0 var(--rosa); }
-  .ws h2 { color: #fff; font-size: 17pt; line-height: 1.1; margin: 4px 0 8px; }
+  .ws { background: var(--ink); color: #fff; border-radius: 14px; padding: 12px 16px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-top: 10px; box-shadow: 5px 5px 0 var(--rosa); }
+  .ws h2 { color: #fff; font-size: 15pt; line-height: 1.1; margin: 3px 0 6px; }
   .ws .eyebrow { color: var(--rosa); }
   .ws .facts { font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; line-height: 1.7; }
   .ws .facts b { color: var(--rosa); display: inline-block; min-width: 72px; }
   .qr { text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; }
-  .qr img { width: 1.15in; height: 1.15in; display: block; background: #fff; border: 2px solid var(--ink); border-radius: 8px; padding: 3px; margin: 0 auto 4px; }
+  .qr img { width: 1.05in; height: 1.05in; display: block; background: #fff; border: 2px solid var(--ink); border-radius: 8px; padding: 3px; margin: 0 auto 4px; }
   .ws .qr { color: #fff; }
   .ws .qr img { border-color: #fff; }
-  .kitrow { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-top: 14px; }
+  .kitrow { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; margin-top: 12px; }
   .kitrow p { font-size: 9.5pt; color: var(--ink2); line-height: 1.45; }
   .kitrow p b { color: var(--azul); }
 </style>
@@ -149,29 +149,39 @@
     </div>
   </div>
 
-  <div class="box mini" style="margin-top:14px">
+  <div class="box" style="margin-top:10px">
+    <div class="eyebrow">// 03 · manos a la obra · se llena en la charla</div>
+    <h2 style="font-size:13pt;margin:2px 0 8px">Mi proyecto en la IA</h2>
+    <div class="field"><b>Nombre del proyecto<small>el de tu tarea</small></b><i></i></div>
+    <div class="field"><b>Mi IA<small>Claude/ChatGPT: Proyecto · Gemini: Gem · Copilot: Notebook</small></b><i></i></div>
+    <div class="field"><b>Instrucciones<small>rol, quién recibe, formato, reglas</small></b><i></i></div>
+    <div class="field"><b>Archivos a subir<small>plantillas, listas, ejemplos</small></b><i></i></div>
+    <div class="save">✓ <b>Proyecto creado</b> <span class="blank" style="width:40px"></span> &nbsp; <b>Prompt corrido dentro</b> <span class="blank" style="width:40px"></span> &nbsp; <b>Corregido una vez</b> <span class="blank" style="width:40px"></span></div>
+  </div>
+
+  <div class="box mini" style="margin-top:10px">
     <div class="eyebrow">// para trabajar todos los días</div>
     <h3>Tres buenas prácticas</h3>
     <ol>
       <li><b>Usa una IA de pago, una sola,</b> y apréndela bien. Revisa en la configuración si tus conversaciones se usan para entrenar.</li>
-      <li><b>Crea un proyecto por tema de trabajo</b> con sus propias instrucciones y archivos. Dentro, un chat por tarea.</li>
+      <li><b>Un proyecto por tema, un chat por tarea.</b> Lo que repites en todos los temas va a tus reglas globales (pieza 07 del kit).</li>
       <li><b>Si la conversación se alargó,</b> pide un resumen y empieza un chat nuevo con él.</li>
     </ol>
   </div>
 
   <div class="kitrow">
     <div class="qr"><img src="../assets/qr-kit.png" alt="QR al kit">KIT</div>
-    <p><b>El kit del participante:</b> glosario, plantilla de prompt, <b>banco de 14 prompts</b> listos para copiar, mapa, checklist de seguridad y frases que funcionan. Todo en PDF.<br><span class="mono" style="font-size:8pt;color:var(--muted)">psolenny.github.io/primeros-pasos-con-IA-ppt/kit</span></p>
+    <p><b>El kit del participante:</b> glosario, plantilla de prompt, <b>banco de 14 prompts</b> listos para copiar, mapa, checklist de seguridad, frases que funcionan y el paso a paso de reglas globales y proyectos. Todo en PDF.<br><span class="mono" style="font-size:8pt;color:var(--muted)">psolenny.github.io/primeros-pasos-con-IA-ppt/kit</span></p>
   </div>
 
   <div class="ws">
     <div>
       <div class="eyebrow">// lo que sigue · solo 20 lugares</div>
-      <h2>Workshop: Tu primera tarea resuelta con IA de principio a fin.</h2>
+      <h2>Workshop: tu primera tarea resuelta con IA, de principio a fin.</h2>
       <div class="facts">
         <b>cuándo</b>21 de noviembre<br>
         <b>duración</b>3 horas · 100% práctico<br>
-        <b>trae</b>laptop · tu IA instalada · esta hoja
+        <b>trae</b>laptop · tu IA con tu proyecto creado · esta hoja
       </div>
     </div>
     <div class="qr"><img src="../assets/qr-workshop.png" alt="QR para inscribirse al workshop">INSCRÍBETE</div>
