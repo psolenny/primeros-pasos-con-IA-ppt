@@ -34,6 +34,7 @@ PAGES = [
     ("mapa",      "04", "Mapa",              "Mapa de tu primera tarea",       "Elige bien la primera tarea y ya ganaste la mitad. Una buena candidata cumple los cuatro criterios.", "04-mapa-primera-tarea.pdf"),
     ("seguridad", "05", "Seguridad",         "Checklist de seguridad",         "Antes de pegar algo en la IA, y antes de usar lo que te devolvió.", "05-checklist-seguridad.pdf"),
     ("frases",    "06", "Frases",            "Frases que sí funcionan",        "“Hazlo mejor” no dice qué está mal ni cómo se ve bien. Estas sí.", "06-frases-que-funcionan.pdf"),
+    ("reglas",    "07", "Reglas y proyectos", "Reglas globales y proyectos",    "Deja escrito lo que repites: una vez en las reglas globales de tu IA, y una vez por tema en un proyecto. Paso a paso para Claude, ChatGPT, Gemini y Copilot.", "07-reglas-y-proyectos.pdf"),
 ]
 
 # ---------------------------------------------------------------- contenido
@@ -319,13 +320,102 @@ def build_frases():
   __PAGER__</div></section>"""
 
 
-BUILDERS = [build_glosario, build_plantilla, build_prompts, build_mapa, build_seguridad, build_frases]
+REGLAS_GLOBALES = """Soy [tu nombre], [tu rol] en [tu área]. Trabajo en [tipo de empresa].
+Respóndeme siempre en español, de forma directa y breve. Prefiero tablas y viñetas antes que párrafos largos.
+Si te falta información para responder bien, pregúntame antes de asumir.
+Nunca inventes datos, cifras, nombres ni fuentes: si no lo sabes, dilo.
+Cuando te pida un correo, usa un tono profesional y cercano, sin excusas largas."""
+
+REGLAS_PROYECTO = """Este proyecto es para [el tema: ej. correos a clientes de la distribuidora].
+Mi rol aquí: [ej. coordinadora de servicio al cliente].
+Quién recibe lo que producimos: [ej. clientes corporativos, mi jefe, el equipo].
+Formato que uso siempre: [ej. correos de máximo 150 palabras con asunto, saludo, 2 párrafos y cierre].
+Reglas de este tema: [ej. nunca prometer fechas sin confirmar con logística; firmar con mi nombre y cargo].
+Archivos de referencia: [ej. plantilla de correo aprobada, lista de precios vigente] (los adjunto al proyecto)."""
+
+# (herramienta, dónde van las reglas globales, pasos globales, cómo se llama el "proyecto", pasos proyecto, nota)
+HERRAMIENTAS = [
+    ("Claude", "Preferencias del perfil",
+     ["Clic en tus iniciales (abajo a la izquierda) → Configuración.",
+      "Busca el campo de preferencias personales (“qué debe tener en cuenta Claude al responder”).",
+      "Pega tus reglas globales y guarda. Aplican a todos los chats nuevos."],
+     "Proyecto",
+     ["En el menú lateral, Proyectos → Crear proyecto. Ponle el nombre del tema.",
+      "Abre el proyecto → Instrucciones del proyecto → pega las reglas del proyecto.",
+      "En Archivos del proyecto, sube tus plantillas y documentos de referencia.",
+      "Todo chat que abras dentro del proyecto arranca con esas instrucciones y archivos."],
+     "Los proyectos requieren plan de pago. Las preferencias del perfil están en todos los planes."),
+    ("ChatGPT", "Personalización → Instrucciones personalizadas",
+     ["Clic en tu foto → Configuración → Personalización.",
+      "Activa “Habilitar personalización” y abre Instrucciones personalizadas.",
+      "Pega tus reglas globales en el campo de cómo quieres que responda y guarda. Aplican a los chats nuevos."],
+     "Proyecto",
+     ["En el menú lateral, Proyectos → Nuevo proyecto. Ponle el nombre del tema.",
+      "Dentro del proyecto, abre Instrucciones y pega las reglas del proyecto.",
+      "Agrega archivos con el botón de archivos del proyecto.",
+      "Los chats creados dentro del proyecto usan esas instrucciones y archivos."],
+     "Si en tu app dice “Personalizar ChatGPT”, es la misma pantalla con el nombre viejo."),
+    ("Gemini", "Instrucciones para Gemini (contexto personal)",
+     ["Clic en tu foto o en Configuración → busca Instrucciones para Gemini / Contexto personal.",
+      "Pega tus reglas globales y guarda.",
+      "Si no aparece en tu cuenta, usa un Gem como se explica abajo."],
+     "Gem",
+     ["En el menú lateral, Explorar Gems → Nuevo Gem. Ponle el nombre del tema.",
+      "En Instrucciones, pega las reglas del proyecto (la varita puede ayudarte a redactarlas).",
+      "En Conocimiento, agrega archivos desde tu equipo o Google Drive.",
+      "Guarda. Cada vez que abras ese Gem, arranca con esas instrucciones."],
+     "Los Gems están disponibles en los planes gratuitos y de pago."),
+    ("Microsoft 365 Copilot", "Personalización → Instrucciones personalizadas",
+     ["En la app de Copilot, Configuración → Personalización → Instrucciones personalizadas.",
+      "Pega tus reglas globales y guarda."],
+     "Notebook de Copilot",
+     ["Crea un Notebook de Copilot para el tema y agrégale tus archivos.",
+      "En el menú del notebook, elige Instrucciones de Copilot y pega las reglas del proyecto.",
+      "Todo lo que preguntes dentro del notebook usa esos archivos e instrucciones."],
+     "Requiere licencia de Microsoft 365 Copilot. Si compartes el notebook, los demás ven tus instrucciones."),
+]
+
+
+def build_reglas():
+    pasos = lambda xs: "".join(f"<li>{e(x)}</li>" for x in xs)
+    tabs = "".join(f"""<div class="box">
+  <span class="n">// {e(nombre)}</span>
+  <div class="grid g2" style="gap:14px;margin-top:6px">
+    <div><h4 style="font-size:15px;margin-bottom:6px">Reglas globales · {e(donde)}</h4><ol style="margin-left:18px;font-size:14.5px;line-height:1.5">{pasos(pg)}</ol></div>
+    <div><h4 style="font-size:15px;margin-bottom:6px">Por tema · {e(proy)}</h4><ol style="margin-left:18px;font-size:14.5px;line-height:1.5">{pasos(pp)}</ol></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:10px">{e(nota)}</p>
+</div>""" for nombre, donde, pg, proy, pp, nota in HERRAMIENTAS)
+    return f"""<section class="sec"><div class="wrap">
+  <div class="grid g2" style="align-items:start">
+    <div class="box azul"><span class="n">// nivel 1 · reglas globales</span><h3>Lo que debe saber siempre</h3>
+      <p style="color:rgba(255,255,255,.85)">Quién eres, cómo te gusta que te responda y qué nunca debe hacer. Se escribe una vez y aplica a todos los chats. Máximo 10 líneas.</p></div>
+    <div class="box negro"><span class="n">// nivel 2 · un proyecto por tema</span><h3>Lo que aplica a un tema</h3>
+      <p style="color:rgba(255,255,255,.85)">El formato, las reglas y los archivos de un tema de trabajo. Cada chat nuevo dentro del proyecto ya arranca con eso. Un proyecto por tema, un chat por tarea.</p></div>
+  </div>
+  <h2 style="margin-top:40px;font-size:26px">Plantillas para copiar</h2>
+  <p class="lead">Cambia lo que está en [corchetes]. Pega la primera en las reglas globales; la segunda, en cada proyecto que crees.</p>
+  <div class="prompt"><div class="prompt-head"><span class="prompt-n">global</span><span class="prompt-t">Reglas globales</span><button class="copy" type="button">copiar</button></div><pre>{mark(REGLAS_GLOBALES)}</pre></div>
+  <div class="prompt"><div class="prompt-head"><span class="prompt-n">proyecto</span><span class="prompt-t">Instrucciones de un proyecto</span><button class="copy" type="button">copiar</button></div><pre>{mark(REGLAS_PROYECTO)}</pre></div>
+  <h2 style="margin-top:40px;font-size:26px">Dónde se pone, en cada IA</h2>
+  <p class="lead">Los menús cambian de nombre con frecuencia; si el tuyo se ve distinto, busca “instrucciones” o “personalización” en la configuración.</p>
+  <div style="display:flex;flex-direction:column;gap:16px">{tabs}</div>
+  <div class="box soft" style="margin-top:28px"><span class="n">// la regla de las tres veces</span><h3>¿Va en global, en proyecto o en el chat?</h3>
+    <ul style="margin:8px 0 0 18px;font-size:15.5px;line-height:1.6">
+      <li><b>Lo escribiste en un chat una vez:</b> queda en el chat.</li>
+      <li><b>Lo repites en varios chats del mismo tema:</b> va al proyecto.</li>
+      <li><b>Lo repites en todos los temas:</b> va a las reglas globales.</li>
+    </ul></div>
+  __PAGER__</div></section>"""
+
+
+BUILDERS = [build_glosario, build_plantilla, build_prompts, build_mapa, build_seguridad, build_frases, build_reglas]
 
 
 def build_index():
     cards = "".join(f'<a class="box" href="{s}.html"><span class="n">{n} · {e(tab)}</span><h3>{e(t)}</h3><p>{e(d)}</p></a>'
                     for s, n, tab, t, d, _ in PAGES)
-    dls = f'<a class="dlc big" href="descargas/{ZIP_NAME}" download><span class="ext zip">ZIP</span><span><b>Descargar todo el kit</b><small>Los 6 PDFs + la hoja del participante + banco de prompts en texto + mapa en CSV</small></span></a>'
+    dls = f'<a class="dlc big" href="descargas/{ZIP_NAME}" download><span class="ext zip">ZIP</span><span><b>Descargar todo el kit</b><small>Los 7 PDFs + la hoja del participante + banco de prompts en texto + mapa en CSV</small></span></a>'
     dls += "".join(f'<a class="dlc" href="descargas/{pdf}" download><span class="ext">PDF</span><span><b>{n} · {e(t)}</b><small>{pdf}</small></span></a>'
                    for s, n, tab, t, d, pdf in PAGES)
     dls += '<a class="dlc" href="descargas/banco-de-prompts.md" download><span class="ext">MD</span><span><b>Banco de prompts en texto</b><small>para copiar sin formato</small></span></a>'
@@ -333,7 +423,7 @@ def build_index():
     body = f"""<section class="hero azul"><div class="wrap">
   <div class="tag">// kit del participante</div>
   <h1>Todo lo de la charla,<br>listo para <span class="hl">usar</span>.</h1>
-  <p>Seis piezas, una por pestaña. Léelas en línea, copia los prompts con un clic o descárgalo todo en un ZIP.</p>
+  <p>Siete piezas, una por pestaña. Léelas en línea, copia los prompts con un clic o descárgalo todo en un ZIP.</p>
   <div class="meta"><a class="chip p" href="descargas/{ZIP_NAME}" download>↓ descargar todo (ZIP)</a><a class="chip" href="prompts.html">ir al banco de prompts →</a></div>
 </div></section>
 <section class="sec"><div class="wrap">
@@ -351,7 +441,7 @@ def build_index():
   <p class="lead">Cada pieza tiene su PDF listo para imprimir. El ZIP trae todo junto.</p>
   <div class="dl">{dls}</div>
 </div></section>"""
-    return page("index", "Kit del participante", body, "index", "Glosario, plantilla de prompt, banco de prompts, mapa, seguridad y frases que funcionan.")
+    return page("index", "Kit del participante", body, "index", "Glosario, plantilla de prompt, banco de prompts, mapa, seguridad, frases que funcionan, y reglas globales y proyectos.")
 
 
 def write_extras():
