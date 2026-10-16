@@ -166,11 +166,27 @@ ANTES: descarga los 4 PDFs de demos/cv (versión nueva). Abre cv-maria-perez.pdf
 3 · LA IA (2 min). Adjunta los 4 PDFs y pega el prompt de la guía. "Fíjense dónde queda María." Lo esperable: María sube, a veces primera o empatada con Carlos, con justificaciones como "5 años en compras, SAP MM, inglés avanzado".
 4 · EL TRUCO (1 min). "¿De dónde sacó la IA que María tiene 5 años en compras?" Vuelve al PDF de María → Cmd+A (Ctrl+A). Aparece el bloque blanco bajo Habilidades. Léelo. "Esto ningún reclutador lo vio. La IA sí, y lo tomó como verdad."
 5 · EL REMATE (1 min). "La IA no miente: lee todo lo que le das, incluso lo que tú no ves. Si un documento viene de afuera, revisa lo que la IA cita contra lo que tú ves."
-Si aun así la IA la pone última o marca la inconsistencia: "Esta vez lo notó. No siempre pasa." Y muestras la captura del ensayo.
-Puente a la slide 10: "Ahora van a hacerle lo mismo a un bot ustedes."</div>
+Si aun así la IA la pone última o marca la inconsistencia: "Esta vez lo notó. No siempre pasa." Y pasas a la slide siguiente (respaldo con la captura del ensayo).
+Puente a la slide 11 (Tecla): "Ahora van a hacerle lo mismo a un bot ustedes."</div>
 </section>
 
-<!-- 10 · chatbot -->
+<!-- 10 · respaldo cv -->
+<section class="slide">
+  <div class="eyebrow">// 02 · plan b · así salió en el ensayo</div>
+  <h2>La IA puso primero<br>a <span class="hl">María</span>.</h2>
+  <div class="cols" style="grid-template-columns:0.8fr 1.35fr;align-items:start">
+    <div>
+      <img src="assets/cv-ensayo-prompt.png" alt="El prompt con la vacante y los tres CVs adjuntos" style="width:100%;border:4px solid var(--negro);border-radius:12px;box-shadow:8px 8px 0 var(--negro)">
+      <p class="sub" style="font-size:clamp(14px,1.6vw,22px)">Gemini Flash-Lite. La justificación: <strong>“experiencia exacta como Analista de Compras, 140 proveedores, SAP MM… cumple al 100%”</strong>.</p>
+      <p class="sub" style="font-size:clamp(14px,1.6vw,22px);margin-top:1.4vh">Nada de eso estaba a la vista: era el <strong>texto en blanco</strong>.</p>
+    </div>
+    <img src="assets/cv-ensayo-ranking.png" alt="Ranking de la IA: 1. María Pérez, 2. Carlos Santos, 3. Ana Reyes" style="width:100%;max-height:60vh;object-fit:contain;border:4px solid var(--negro);border-radius:12px;box-shadow:8px 8px 0 var(--rosa);background:#111">
+  </div>
+  <div class="notes">SLIDE DE RESPALDO. Si el demo en vivo funcionó, pásala rápido. Si la IA no cayó en vivo: "En el ensayo pasó esto" y muestra el ranking.
+Señala la justificación de María: 140 proveedores, SAP MM, Power Query, inglés avanzado. "Ninguno de esos datos se ve en su CV. Todos venían del texto en blanco." Luego Cmd+A en el PDF para revelarlo si no lo hiciste antes.</div>
+</section>
+
+<!-- 11 · chatbot -->
 <section class="slide">
   <div class="eyebrow">// 02 · ejemplo 2 · pruébalo tú</div>
   <h2>¿Puedes engañar<br>a <span class="hl">Tecla</span>?</h2>
@@ -199,7 +215,7 @@ Dato: caso Chevrolet de Watsonville (dic. 2023), un chatbot "aceptó" vender una
 DESPUÉS DE LA CHARLA: BOT_ENABLED=false en Vercel.</div>
 </section>
 
-<!-- 11 · protegerte -->
+<!-- 12 · protegerte -->
 <section class="slide dark">
   <div class="eyebrow">// 02 · esto no se negocia</div>
   <h2>Cuatro reglas<br>para <span class="hl">protegerte</span>.</h2>
@@ -212,7 +228,7 @@ DESPUÉS DE LA CHARLA: BOT_ENABLED=false en Vercel.</div>
   <div class="notes">La regla general: la IA propone, una persona revisa antes de que algo salga hacia un cliente, un pago o una decisión.</div>
 </section>
 
-<!-- 12 · contexto -->
+<!-- 13 · contexto -->
 <section class="slide">
   <div class="eyebrow">// 03 · el contexto lo es todo</div>
   <h2>La IA no sabe nada<br>de ti. <span class="hl">Hasta que se lo das</span>.</h2>
@@ -221,7 +237,7 @@ DESPUÉS DE LA CHARLA: BOT_ENABLED=false en Vercel.</div>
   <div class="notes">La mayoría de las respuestas malas no son culpa del modelo sino de que le faltó contexto.</div>
 </section>
 
-<!-- 13 · 3 fuentes -->
+<!-- 14 · 3 fuentes -->
 <section class="slide">
   <div class="eyebrow">// 03 · de dónde sale lo que "sabe"</div>
   <h2>Tres fuentes de contexto.</h2>
@@ -233,7 +249,7 @@ DESPUÉS DE LA CHARLA: BOT_ENABLED=false en Vercel.</div>
   <div class="notes">Empleado nuevo muy inteligente: (1) la tarea de hoy, (2) los documentos, (3) el manual de inducción. La fuente 3 es la más subutilizada: evita repetir lo mismo en cada chat.</div>
 </section>
 
-<!-- 14 · ventana de contexto -->
+<!-- 15 · ventana de contexto -->
 <section class="slide">
   <div class="eyebrow">// 04 · qué recuerda la ia</div>
   <h2>La memoria de trabajo<br>tiene <span class="hl">fondo</span>.</h2>
@@ -251,7 +267,7 @@ DESPUÉS DE LA CHARLA: BOT_ENABLED=false en Vercel.</div>
   <div class="notes">Una mesa llena de papeles: los que quedaron debajo en el medio casi no se ven. Por eso las conversaciones eternas terminan dando peores respuestas.</div>
 </section>
 
-<!-- 15 · qué recuerda -->
+<!-- 16 · qué recuerda -->
 <section class="slide">
   <div class="eyebrow">// 04 · el malentendido más común</div>
   <h2>“Pero si ya<br>te lo <span class="hl">expliqué</span>…”</h2>
@@ -264,7 +280,7 @@ DESPUÉS DE LA CHARLA: BOT_ENABLED=false en Vercel.</div>
 Recomendación concreta: crear un proyecto por tema (ej. "Reportes de ventas", "Correos a clientes") con instrucciones fijas y los archivos de referencia. Cada chat nuevo dentro del proyecto ya arranca con ese contexto.</div>
 </section>
 
-<!-- 16 · cafecito (recordatorio, sin pausa) -->
+<!-- 17 · cafecito (recordatorio, sin pausa) -->
 <section class="slide pop">
   <div class="eyebrow">// recordatorio · no paramos</div>
   <h1 style="font-size:clamp(46px,9vw,130px)">Cafecito. ☕</h1>
@@ -273,7 +289,7 @@ Recomendación concreta: crear un proyecto por tema (ej. "Reportes de ventas", "
   <div class="notes">SIN PAUSA: solo recordatorio. Señalar dónde está el café y seguir. Mientras se sirven, pedir que piensen en una tarea que repiten cada semana: la usamos en el bloque 6.</div>
 </section>
 
-<!-- 17 · anatomía -->
+<!-- 18 · anatomía -->
 <section class="slide">
   <div class="eyebrow">// 05 · el arte de pedir bien</div>
   <h2>Anatomía de un<br>buen <span class="hl">prompt</span>.</h2>
@@ -289,7 +305,7 @@ Recomendación concreta: crear un proyecto por tema (ej. "Reportes de ventas", "
   <div class="notes">No hace falta usar las seis siempre; mientras más importante la tarea, más piezas conviene incluir.</div>
 </section>
 
-<!-- 18 · antes/después -->
+<!-- 19 · antes/después -->
 <section class="slide">
   <div class="eyebrow">// 05 · mismo pedido, dos veces</div>
   <h2>Antes y después.</h2>
@@ -303,7 +319,7 @@ Recomendación concreta: crear un proyecto por tema (ej. "Reportes de ventas", "
 Plan B: resultados guardados.</div>
 </section>
 
-<!-- 19 · hazlo mejor -->
+<!-- 20 · hazlo mejor -->
 <section class="slide dark">
   <div class="eyebrow">// 05 · la frase que no funciona</div>
   <h2>¿Por qué “hazlo<br><span class="hl">mejor</span>” no sirve?</h2>
@@ -317,7 +333,7 @@ Plan B: resultados guardados.</div>
 Igual que con una persona: si le dices "mejóralo" a alguien del equipo, va a adivinar. En el kit hay 10 frases listas.</div>
 </section>
 
-<!-- 20 · mapa -->
+<!-- 21 · mapa -->
 <section class="slide">
   <div class="eyebrow">// 06 · tu primera tarea con ia</div>
   <h2>El mapa de tu<br><span class="hl">primera tarea</span>.</h2>
@@ -332,7 +348,7 @@ Igual que con una persona: si le dices "mejóralo" a alguien del equipo, va a ad
 Que llenen el bloque 01 de la hoja del participante (lado del frente) con la tarea que pensaron cuando vimos el cafecito, incluida la línea "Con IA me ahorraría ___ minutos por semana". Pide 2 o 3 ejemplos en voz alta.</div>
 </section>
 
-<!-- 21 · manos a la obra -->
+<!-- 22 · manos a la obra -->
 <section class="slide pop with-menti">
   <div class="eyebrow">// 06 · 12 minutos · laptop o celular</div>
   <h2>Manos a la obra:<br>crea tu proyecto.</h2>
@@ -356,7 +372,7 @@ La idea: que se lleven algo que PERSISTE. Un chat suelto se olvida; el proyecto 
 Camina por el salón. Pide a 1 o 2 que muestren su proyecto en pantalla. Aplausos.</div>
 </section>
 
-<!-- 22 · asistente -->
+<!-- 23 · asistente -->
 <section class="slide">
   <div class="eyebrow">// 06 · abrimos la caja</div>
   <h2>¿De qué está hecho<br>un <span class="hl">asistente</span>?</h2>
@@ -370,7 +386,7 @@ Camina por el salón. Pide a 1 o 2 que muestren su proyecto en pantalla. Aplauso
   <div class="notes">Todo asistente, desde ChatGPT hasta un bot de atención, tiene estas piezas. Cuando funciona mal, casi siempre falla una de las de abajo, no el modelo.</div>
 </section>
 
-<!-- 23 · usar una IA de pago -->
+<!-- 24 · usar una IA de pago -->
 <section class="slide">
   <div class="eyebrow">// 06 · una recomendación honesta</div>
   <h2>Usa una IA <span class="hl">de pago</span>.<br>Una sola, y apréndela bien.</h2>
@@ -383,7 +399,7 @@ Camina por el salón. Pide a 1 o 2 que muestren su proyecto en pantalla. Aplauso
   <div class="notes">No recomendar una marca por encima de otra: Claude, ChatGPT y Gemini tienen planes individuales parecidos. Recomendación para cada participante: escoger una IA, pagar el plan individual y usarla todos los días. Mostrar dónde está la opción de privacidad en la herramienta que usas.</div>
 </section>
 
-<!-- 24 · rutina -->
+<!-- 25 · rutina -->
 <section class="slide">
   <div class="eyebrow">// 06 · demo en vivo</div>
   <h2>Una rutina: la misma<br>tarea, <span class="hl">igual cada vez</span>.</h2>
@@ -403,7 +419,7 @@ Usa los archivos ficticios (correos-de-la-semana.md y calendario-de-la-semana.cs
 Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
 </section>
 
-<!-- 25 · skill cuándo -->
+<!-- 26 · skill cuándo -->
 <section class="slide azul">
   <div class="eyebrow">// 06 · lo que repites se guarda</div>
   <h2>Un skill es un manual<br>que dejaste <span class="hl">escrito</span>.</h2>
@@ -416,7 +432,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
   <div class="notes">Si cada semana le explico a la IA cómo hago la minuta, eso debería ser un skill. Lo escribo una vez y todo el equipo lo reutiliza.</div>
 </section>
 
-<!-- 26 · buscar skill -->
+<!-- 27 · buscar skill -->
 <section class="slide">
   <div class="eyebrow">// 06 · antes de escribir el tuyo</div>
   <h2>¿Cómo buscar<br>un <span class="hl">skill</span>?</h2>
@@ -428,7 +444,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
   <div class="notes">Mostrar dónde están los skills en la herramienta que usamos. Un skill es como instalar un programa: si no sabes qué hace, no lo instales.</div>
 </section>
 
-<!-- 27 · cuándo no -->
+<!-- 28 · cuándo no -->
 <section class="slide dark">
   <div class="eyebrow">// 06 · dónde no</div>
   <h2>Cuándo la IA es la<br>herramienta <span class="hl">equivocada</span>.</h2>
@@ -442,7 +458,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
   <div class="notes">La IA no es un martillo para todo. Si la tarea necesita exactitud absoluta, reglas fijas o una firma humana, hay mejores herramientas.</div>
 </section>
 
-<!-- 28 · 3 cosas -->
+<!-- 29 · 3 cosas -->
 <section class="slide azul">
   <div class="eyebrow">// si te llevas solo tres</div>
   <h2>Tres cosas.</h2>
@@ -454,7 +470,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
   <div class="notes">Si solo recuerdan tres cosas, que sean estas.</div>
 </section>
 
-<!-- 29 · kit -->
+<!-- 30 · kit -->
 <section class="slide pop">
   <div class="eyebrow">// todo esto, escrito · no copies nada a mano</div>
   <h2>El kit del<br>participante.</h2>
@@ -468,7 +484,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
   <div class="notes">El kit es lo que abren en casa: el banco de prompts para seguir practicando y la versión digital de la hoja. Cada página del kit anuncia el workshop.</div>
 </section>
 
-<!-- 30 · hoy vs workshop -->
+<!-- 31 · hoy vs workshop -->
 <section class="slide">
   <div class="eyebrow">// lo que hiciste hoy vs. lo que viene</div>
   <h2>Hoy probaste. El 21<br>lo <span class="hl">terminas</span>.</h2>
@@ -479,7 +495,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
   <div class="notes">El puente al workshop. Hazles sentir la brecha: "Hoy crearon el proyecto y corrieron un prompt en 12 minutos. Imaginen 3 horas trabajando su tarea completa dentro de ese proyecto, conmigo al lado." Pasa directo a la siguiente slide.</div>
 </section>
 
-<!-- 31 · workshop -->
+<!-- 32 · workshop -->
 <section class="slide dark with-menti">
   <div class="eyebrow">// lo que sigue · 21 de noviembre · solo 20 lugares</div>
   <h2>Workshop: tu primera tarea<br><span class="hl">de principio a fin</span>.</h2>
@@ -501,7 +517,7 @@ Es el primer demo que se recorta si vas atrasada: muestra la captura.</div>
 El QR lleva directo al formulario de Microsoft Forms (nombre, correo y teléfono). No pide iniciar sesión. Te llega un correo con cada inscripción.</div>
 </section>
 
-<!-- 32 · cierre -->
+<!-- 33 · cierre -->
 <section class="slide azul">
   <div class="eyebrow">// gracias · ahora sí, preguntas</div>
   <div style="display:flex;gap:4vw;align-items:center">
@@ -518,7 +534,7 @@ El QR lleva directo al formulario de Microsoft Forms (nombre, correo y teléfono
   <div class="notes">Mientras respondes preguntas, el QR de la encuesta de satisfacción queda en pantalla: "Escaneen y respondan en lo que hacemos preguntas; es un minuto." Es un formulario de Microsoft Forms (Cecomsa Labs). Déjala también visible en la última llamada si quieres: ahí va el QR del workshop, así que esta slide es el momento de la encuesta.</div>
 </section>
 
-<!-- 33 · última llamada -->
+<!-- 34 · última llamada -->
 <section class="slide dark">
   <div class="eyebrow">// última llamada · 20 lugares</div>
   <h2>Nos vemos el<br><span class="hl">21 de noviembre</span>.</h2>
