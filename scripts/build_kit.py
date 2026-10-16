@@ -220,7 +220,7 @@ document.querySelectorAll('.filter button').forEach(function(b){{b.addEventListe
 """
 
 
-WORKSHOP_BOX = """<a class="box negro" href="../index.html#workshop" style="margin-top:40px">
+WORKSHOP_BOX = """<a class="box negro" href="https://forms.cloud.microsoft/r/4RbmgTepT5" target="_blank" rel="noopener" style="margin-top:40px">
   <span class="n">// workshop · 21 de noviembre · 3 horas · 20 lugares</span>
   <h3>Tu primera tarea resuelta con IA de principio a fin.</h3>
   <p style="color:rgba(255,255,255,.85)">100% práctico. Trae laptop, tu IA instalada y tu mapa lleno. Inscríbete →</p>
