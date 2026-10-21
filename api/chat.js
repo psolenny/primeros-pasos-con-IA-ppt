@@ -23,16 +23,20 @@ const ALLOWED_ORIGINS = [
 const MAX_CHARS = 1200;      // por mensaje del público
 const MAX_TURNS = 10;        // mensajes del público por conversación
 const RATE_WINDOW_MS = 10 * 60 * 1000;
-const RATE_MAX = 25;         // mensajes por IP cada 10 minutos
+// En la sala todos los celulares salen por la misma IP del Wi-Fi, así que el límite
+// fino va por persona (la sesión que genera la página) y el de IP es solo un techo
+// alto contra abusos. Probado con 40 personas simultáneas (3 mensajes cada una).
+const RATE_MAX_SESSION = 20; // mensajes por persona cada 10 minutos
+const RATE_MAX_IP = 600;     // mensajes por IP cada 10 minutos (una sala completa)
 
 // Límite en memoria: es por instancia, así que es aproximado. Para la charla basta.
 const hits = new Map();
-function rateLimited(ip) {
+function overLimit(key, max) {
   const now = Date.now();
-  const list = (hits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  const list = (hits.get(key) || []).filter((t) => now - t < RATE_WINDOW_MS);
   list.push(now);
-  hits.set(ip, list);
-  return list.length > RATE_MAX;
+  hits.set(key, list);
+  return list.length > max;
 }
 
 function cors(req, res) {
@@ -68,11 +72,12 @@ export default async function handler(req, res) {
   }
 
   const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim() || "anon";
-  if (rateLimited(ip)) {
+  const { messages, mode, session } = req.body || {};
+  const sid = typeof session === "string" && /^[a-z0-9-]{8,64}$/i.test(session) ? session : null;
+  if (overLimit("ip:" + ip, RATE_MAX_IP) || (sid && overLimit("s:" + sid, RATE_MAX_SESSION))) {
     return res.status(429).json({ error: "Muchos mensajes seguidos. Espera unos minutos y vuelve a intentar." });
   }
 
-  const { messages, mode } = req.body || {};
   if (!validMessages(messages)) {
     return res.status(400).json({ error: `La conversación no es válida o es muy larga (máximo ${MAX_TURNS} mensajes de ${MAX_CHARS} caracteres). Empieza una nueva.` });
   }

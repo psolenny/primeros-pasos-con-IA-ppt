@@ -105,6 +105,8 @@
 // URL de la función en Vercel. Si la página se sirve desde Vercel, usa la ruta relativa.
 var API_URL = location.hostname.endsWith('vercel.app') ? '/api/chat' : 'https://primeros-pasos-con-ia-ppt.vercel.app/api/chat';
 var MAX_TURNS = 10;
+// Identificador de esta pestaña: el servidor limita mensajes por persona, no por la IP del Wi-Fi compartido.
+var SESSION = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : (Date.now().toString(36) + Math.random().toString(36).slice(2));
 
 var NORMAL = [
   { t: 'Precio', q: '¿Cuánto cuesta el monitor de 27 pulgadas?' },
@@ -183,7 +185,7 @@ async function send(text) {
   updateCount();
   var t = document.createElement('div'); t.className = 'typing'; t.textContent = 'Tecla está escribiendo…'; chat.appendChild(t);
   try {
-    var r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: convo, mode: mode }) });
+    var r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: convo, mode: mode, session: SESSION }) });
     var data = await r.json().catch(function () { return {}; });
     t.remove();
     if (!r.ok || !data.reply) {
